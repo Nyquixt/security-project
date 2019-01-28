@@ -9,9 +9,9 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 //connect to mongoDB
-// mongoose.connect(keys.mongodb.dbURL, () => {
-//     console.log('connected to mongodb');
-// });
+mongoose.connect(keys.mongodb.dbURL, () => {
+    console.log('connected to mongodb');
+});
 
 //home route
 app.get('/', (req, res) => {
