@@ -1,2 +1,2 @@
-# nodejs-template
-a simple template for nodejs app
+# security-project
+a nodejs app that teaches basic security thru visualization
