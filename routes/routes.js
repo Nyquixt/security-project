@@ -11,8 +11,8 @@ var urlencodedParser = bodyParser.urlencoded({
 //routes
 router.get('/aes', (req, res) => {
     //do something
-    const password = randomString(24)
-    enc('aes-192-cbc', password, res)
+    const plaintext = randomString(24)
+    enc('aes-192-cbc', plaintext, res)
 });
 
 function randomString(length) {
