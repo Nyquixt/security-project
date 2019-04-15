@@ -1,0 +1,77 @@
+body {
+    font-size: 10pt;
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    color: black;
+    line-height: 14pt;
+    padding-left: 5pt;
+    padding-right: 5pt;
+    padding-top: 5pt;
+  }
+  h1 {
+    font: 14pt Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    line-height: 20pt;
+  }
+  p.subheader {
+    font-weight: bold;
+    color: #593d87;
+  }
+  img {
+    padding: 3pt;
+    float: right;
+  }
+  a {
+    text-decoration: none;
+  }
+  a:link, a:visited {
+    color: #8094d6;
+  }
+  a:hover, a:active {
+    color: #FF9933;
+  }
+  div.footer {
+    font-size: 9pt;
+    font-style: italic;
+    line-height: 12pt;
+    text-align: center;
+    padding-top: 30pt;
+  }
+
+body, html {
+  height: 100%;
+}
+
+.parallax {
+  /* The image used */
+  background-image: url(/images/img_parallax.jpg);
+
+  /* Full height */
+  height: 100%; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: scroll;
+}
+
+#header{
+  position: absolute;
+  z-index: 1000;
+  top: 200px;
+  left: 200px;
+}
+
+.text-box{
+	height: 600px;
+	padding: 50px;
+}
+@media only screen and (max-device-width: 1024px) {
+    .parallax {
+        background-attachment: scroll;
+    }
+}
+.navbar {
+    margin-bottom: 0 !important;
+}
