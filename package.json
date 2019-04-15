@@ -1,17 +1,22 @@
 {
-  "name": "nodejs-template",
+  "name": "security-project",
   "version": "1.0.0",
-  "description": "a template for all my nodejs projects",
+  "description": "teaching people security basics",
   "main": "app.js",
   "scripts": {
+    "start": "nodemon app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "kiennguyen",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "crypto": "^1.0.1",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "mongoose": "^5.4.7"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.11"
   }
 }
