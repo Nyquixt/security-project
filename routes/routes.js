@@ -1,18 +1,39 @@
 const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
-const someModel = require('../models/model');
-const enc = require('../crypto/enc')
+const crypto = require('crypto');
 
 var urlencodedParser = bodyParser.urlencoded({
     extended: false
 });
 
 //routes
-router.get('/aes', (req, res) => {
-    //do something
-    const plaintext = randomString(24)
-    enc('aes-192-cbc', plaintext, res)
+router.post('/enc-aes', urlencodedParser, (req, res) => {
+    let data = req.body;
+    console.log(data);
+    let plaintxt = req.body.plaintxt;
+    let algo = req.body.algo;
+    let passwd = req.body.passwd;
+
+    let key = crypto.createCipher(algo, passwd);
+    var cipher = key.update(plaintxt, 'utf8', 'hex')
+
+    cipher += key.final('hex');
+    res.send(cipher);
+});
+
+router.post('/dec-aes', urlencodedParser, (req, res) => {
+    let data = req.body;
+    console.log(data);
+    let algo = req.body.algo;
+    let passwd = req.body.passwd;
+    let ciphertxt = req.body.ciphertxt;
+
+    let key = crypto.createDecipher(algo, passwd);
+    var plain = key.update(ciphertxt, 'hex', 'utf8');
+
+    plain += key.final('utf8');
+    res.send(plain);
 });
 
 function randomString(length) {

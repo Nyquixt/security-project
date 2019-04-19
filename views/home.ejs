@@ -14,8 +14,19 @@
 </head>
 
 <body>
-    <h1>Hi, this is the home page of some NodeJS app</h1>
-    <button>Click Me!</button>
+    <h1>Cipher and Decipher</h1>
+    <form>
+        <label for="plaintxt">Plaintext</label>
+        <input type="text" name="plaintxt" id="plaintxt">
+        <label for="algo">Algorithm</label>
+        <input type="text" name="algo" id="algo">
+        <label for="passwd">Password</label>
+        <input type="text" name="passwd" id="passwd">
+        <label for="ciphertxt">Ciphertext</label>
+        <input type="text" name="ciphertxt" id="ciphertxt">
+        <button id="enc">Encrypt</button>
+        <button id="dec">Decrypt</button>
+    </form>
 
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>

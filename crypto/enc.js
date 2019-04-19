@@ -1,12 +1,12 @@
 const crypto = require('crypto')
 
-module.exports = function cryptoEnc(algorithm, plaintext, res) {
+module.exports = function cryptoEnc(algorithm, password, res) {
     // const algorithm = 'aes-192-cbc';
     // const password = 'Password used to generate key';
     // Key length is dependent on the algorithm. In this case for aes192, it is
     // 24 bytes (192 bits).
     // Use async `crypto.scrypt()` instead.
-    const key = crypto.scryptSync(plaintext, 'salt', 24);
+    const key = crypto.scryptSync(password, 'salt', 24);
     // Use `crypto.randomBytes()` to generate a random iv instead of the static iv
     // shown here.
     const iv = Buffer.alloc(16, 0); // Initialization vector.
