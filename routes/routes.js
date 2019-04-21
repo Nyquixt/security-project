@@ -8,7 +8,11 @@ var urlencodedParser = bodyParser.urlencoded({
 });
 
 //routes
-router.post('/enc-aes', urlencodedParser, (req, res) => {
+router.get('/enc-dec', (req, res) => {
+    res.render('enc-dec');
+});
+
+router.post('/enc', urlencodedParser, (req, res) => {
     let data = req.body;
     console.log(data);
     let plaintxt = req.body.plaintxt;
@@ -22,7 +26,7 @@ router.post('/enc-aes', urlencodedParser, (req, res) => {
     res.send(cipher);
 });
 
-router.post('/dec-aes', urlencodedParser, (req, res) => {
+router.post('/dec', urlencodedParser, (req, res) => {
     let data = req.body;
     console.log(data);
     let algo = req.body.algo;
