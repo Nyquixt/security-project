@@ -40,6 +40,37 @@ router.post('/dec', urlencodedParser, (req, res) => {
     res.send(plain);
 });
 
+router.get('/key-exchange', (req, res) => {
+    res.render('key-exchange');
+});
+
+router.post('/prime', urlencodedParser, (req, res) => {
+    // Generate Alice's keys...
+    const alice = crypto.createDiffieHellman(parseInt(req.body.prime, 10));
+    const aliceKey = alice.generateKeys();
+    const alicePrivate = alice.getPrivateKey('hex');
+
+    // Generate Bob's keys...
+    const bob = crypto.createDiffieHellman(alice.getPrime(), alice.getGenerator());
+    const bobKey = bob.generateKeys();
+    const bobPrivate = bob.getPrivateKey('hex');
+
+    // Exchange and generate the secret...
+    const aliceSecret = alice.computeSecret(bobKey);
+    const bobSecret = bob.computeSecret(aliceKey);
+
+    const data = {
+        aliceKey: aliceKey,
+        alicePrivate: alicePrivate,
+        aliceSecret: aliceSecret,
+        bobKey: bobKey,
+        bobPrivate: bobPrivate,
+        bobSecret: bobSecret
+    }
+
+    res.send(data);
+});
+
 function randomString(length) {
     let text = "";
     const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
