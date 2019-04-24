@@ -75,4 +75,9 @@ router.get('/asym-enc-dec', (req, res) => {
     res.render('asym-enc-dec');
 });
 
+// test routes
+router.get('/a', (req, res) => {
+    res.render('keyexchange');
+});
+
 module.exports = router
