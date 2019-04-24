@@ -5,14 +5,14 @@
 }
 
 .navbar a {
-    font-family: cursive;
+    font-family: Abel;
     float: center;
     display:inline;
     color: #5200cc;
     text-align: center;
-    padding: 14px 40px;
+    padding: 14px 30px;
     text-decoration: none;
-    font-size: 40px;
+    font-size: 30px;
 }
 
 .navbar a:hover {
