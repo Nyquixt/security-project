@@ -46,7 +46,7 @@ router.get('/key-exchange', (req, res) => {
 
 router.post('/prime', urlencodedParser, (req, res) => {
     // Generate Alice's keys...
-    const alice = crypto.createDiffieHellman(parseInt(req.body.prime, 10));
+    const alice = crypto.createDiffieHellman(parseInt(req.body.primeLength, 10));
     const aliceKey = alice.generateKeys();
     const alicePrivate = alice.getPrivateKey('hex');
 
@@ -71,14 +71,8 @@ router.post('/prime', urlencodedParser, (req, res) => {
     res.send(data);
 });
 
-function randomString(length) {
-    let text = "";
-    const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-    for (var i = 0; i < length; i++)
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
-
-    return text;
-}
+router.get('/asym-enc-dec', (req, res) => {
+    res.render('asym-enc-dec');
+});
 
 module.exports = router

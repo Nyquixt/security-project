@@ -5,7 +5,7 @@ $(function(){
             url: 'http://localhost:3000/prime',
             method: 'POST',
             data: {
-                prime: $('#prime').val()
+                primeLength: $('#prime-length').val()
             },
             success: function(data){
                 console.log(data);
