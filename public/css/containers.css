@@ -1,7 +1,8 @@
-html, body {
+html,
+body {
   scroll-behavior: smooth;
   max-width: 100%;
-  
+
 }
 
 .MainContainer {
@@ -18,36 +19,37 @@ html, body {
   background-color: white;
   z-index: 1;
   background-size: cover;
-    
+
 }
 
-.Content {    
+.Content {
   max-width: 90%;
   margin: 0 auto;
   padding: 5px 0;
 }
 
-.column{
-    margin: 0 2vw;
+.column {
+  margin: 0 2vw;
 }
 
 .left {
-    float: left;
+  float: left;
 }
+
 .small {
-    padding-top: 10%;
-    padding-left: 10%;
-    width: 20%;
+  padding-top: 10%;
+  padding-left: 10%;
+  width: 20%;
 }
 
 .medium {
-    padding-top: 10%;
-    padding-right: 5%;
-    width: 55%;
+  padding-top: 10%;
+  padding-right: 5%;
+  width: 55%;
 }
 
 .right {
-    float: right;
+  float: right;
 }
 
 .ParallaxContainer {
@@ -56,8 +58,6 @@ html, body {
   height: 80vw;
   transform: translateZ(-1px) scale(2);
   z-index: -1;
-}
-
 }
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,800');
@@ -69,15 +69,20 @@ html, body {
   width: 100%;
 }
 
-#customers td, #customers th {
+#customers td,
+#customers th {
   border: 1px solid #ddd;
   padding: 8px;
   font-size: 30px;
 }
 
-#customers tr:nth-child(even){background-color: #f2f2f2;}
+#customers tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 
-#customers tr:hover {background-color: #ddd;}
+#customers tr:hover {
+  background-color: #ddd;
+}
 
 #customers th {
   padding-top: 12px;

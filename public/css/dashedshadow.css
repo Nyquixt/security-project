@@ -19,10 +19,12 @@ body {
   0% {
     background-position: 0 0;
   }
+
   100% {
     background-position: 100% 0;
   }
 }
+
 .dashed-shadow:before {
   content: " ";
   display: block;
@@ -55,9 +57,9 @@ body {
 }
 
 .hello {
-  font-family: 'Cookie',cursive;
+  font-family: 'Cookie', cursive;
   font-size: 130pt;
-    padding-bottom: 50px;
+  padding-bottom: 50px;
 }
 
 .sorta-block {
@@ -84,10 +86,10 @@ body {
 .hipsterish {
   font-family: 'Sancreek', cursive;
   font-size: 20pt;
-    color: white;
-    padding-top: 0;
-    margin:0;
-    
+  color: white;
+  padding-top: 0;
+  margin: 0;
+
 }
 
 .dashed-shadow-text {
