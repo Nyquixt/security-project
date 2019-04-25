@@ -13,11 +13,8 @@ html, body {
 }
 
 .ContentContainer {
-  position: relative;
   display: block;
   background-color: white;
-  z-index: 1;
-  background-size: cover;
     
 }
 
@@ -37,7 +34,7 @@ html, body {
 .small {
     padding-top: 10%;
     padding-left: 10%;
-    width: 20%;
+    width: 30%;
 }
 
 .medium {
@@ -53,7 +50,7 @@ html, body {
 .ParallaxContainer {
   display: flex;
   flex: 1 0 auto;
-  height: 80vw;
+  height: 90vw;
   transform: translateZ(-1px) scale(2);
   z-index: -1;
 }

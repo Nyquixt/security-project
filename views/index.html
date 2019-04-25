@@ -8,15 +8,18 @@
   <meta name="description" content="Network Security Labs">
   <meta name="author" content="Kenzie Clarke">
 
-<link rel="stylesheet" href="/public/css/styles.css?v=1.0">
+<link rel="stylesheet" href="/public/css/containers.css">
 <link rel="stylesheet" href="/public/css/dashedshadow.css">
 <link rel="stylesheet" href="/public/css/navbar.css">
+<link rel="stylesheet" href="/public/css/text.css">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Sancreek' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
     
 </head>
 
@@ -25,16 +28,15 @@
   <div class="ContentContainer">
     <div class="Content">
         <img src="/images/Network2.png" alt="Icon here" style="max-width: 50%; position: center">
-        <span data-text="Network Security Labs" class="dashed-shadow ">Network Security Labs</span>
+        <span data-text="Network Security Labs" class="dashed-shadow hello">Network Security Labs</span>
       </div>
       <div class="navbar">
           <div class="navbar-centered">
-              <a  class="active" href="#">Home </a>
-              <a href="/diffie-helman.html">D-H</a>
-              <a  href="/rsa.html">RSA </a>
-              <a href="/des.html">DES </a>
-              <a href="/aes.html"> AES</a>
-          </div>
+              <a class="active" href="#">Home </a>
+              <a href="/keyexchange.html">Key Exchange</a>
+              <a  href="/symmetric.html">Symmetric </a>
+              <a href="/asymmetric.html">Asymmetric </a>
+              </div>
       </div>
     </div>
     
@@ -43,11 +45,11 @@
             
         <div class="Content"> 
              <div class="row">
-                <div class="column left small">
-                    <p>What is Encryption?</p>
+                <div class="column left small" style="width: 20%">
+                    <p>Encryption</p>
                 </div>
                 <div class="column right medium">
-                    <p class="white" style="font-size: 2vw; line-height: normal; text-align: left;"> AES breaks down when it appears to have less than 1 line. This is so odd, but I dont suspect it a true problem.</p> 
+                    <p class="white" style="font-size: 2vw; line-height: normal; text-align: left;"> Encryption is the process of encoding a message or information so that only authorized parties can access it and everyone else cannot.</p> 
                 </div>
             </div>
             <div class="row">
@@ -59,9 +61,30 @@
     </div>
     <div class="ContentContainer" style="background-color: white">
         <div class="Content">
-            <img src="/images/Network2.png" alt="Icon here" style="max-width: 50%; position: center">
-        <span data-text="Network Security Labs" class="dashed-shadow ">Network Security Labs</span>
+           <h2 style="font-size: 5vw"> Symmetric vs. Asymmetric(public key) </h2>
+            <p2> Having watched the video, you now understand the difference between Symmetric encryption and Asymmetric (public key). Here is a table of the modern encryption algorithms covered throughout these labs:</p2>
+            <table id="customers" align="center">
+            <tr> 
+                <th>Symmetric</th> 
+                <th> Asymmertric </th>
+            </tr>
+            <tr> 
+                <td> DES </td>
+                <td> RSA </td>
+            </tr>
+            <tr>
+                <td> AES </td>
+                <td> ECC </td>
+            </tr>
+            <tr> 
+                <td> RC4 </td>
+                <td> ElGamal </td>
+            </tr>
+            </table>
+        <p2 style="padding-top: 5vw"> This lab covers a few different forms of modern encryption, as well as the Diffie Helman key exchange process. You will learn about that in the next section.</p2>
         </div>
+        
+            <!-- Insert Next Section Button-->
     </div>
     
 </body>
