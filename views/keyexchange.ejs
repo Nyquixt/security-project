@@ -13,9 +13,11 @@
     <link rel="stylesheet" href="/css/dashedshadow.css">
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/text.css">
+    <link rel="stylesheet" href="/css/slider.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <script src="/js/keyexchange.js"></script>
 
     <link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
@@ -50,15 +52,17 @@
                     <p>Diffie Helman Key Exchange</p>
                 </div>
                 <div class="column right medium">
-                    <p class="white" style="font-size: 2vw; line-height: normal; text-align: left;"> Encryption is the
-                        process of encoding a message or information so that only authorized parties can access it and
-                        everyone else cannot.</p>
+                    <p class="white" style="line-height: normal; text-align: left; "> Encryption is the process of
+                        encoding a message or information so that only authorized parties can access it and everyone
+                        else cannot.</p>
                 </div>
-            </div>
-            <div class="row">
-                <div class="column">
-                    <iframe width=600vw height=350vw src="https://www.youtube.com/embed/ERp8420ucGs?start=21"
-                        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                <div class="column" style="position: absolute; 
+                margin: auto;
+                top: 60%;
+                left: 60%;
+                transform: translate(-50%, -40%);">
+                    <iframe width=560vw height=315vw src="https://www.youtube.com/embed/NmM9HA2MQGI" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
                 </div>
             </div>
@@ -66,13 +70,97 @@
     </div>
     <div class="ContentContainer" style="background-color: white">
         <div class="Content">
-            <h2> How it Works </h2>
-            <p2> Having watched the video, you now understand the difference between Symmetric encryption and Asymmetric
-                (public key). This lab covers a few different forms of modern encryption, as well as the Diffie Helman
-                key exchange process. You will learn about that in the next section. </p2>
+            <h2> Diffie-Hellman Algorithm </h2>
+            <p2 center> Let's dive into the actual key exchange algorithm. </p2>
 
+            <img src="/images/keyex.png" alt="Icon here" style="max-width: 80%; position: center">
 
-            </table>
+            <h3> Example </h3>
+            <div class="slider">
+
+                <a href="#slide-1">1</a>
+                <a href="#slide-2">2</a>
+                <a href="#slide-3">3</a>
+                <a href="#slide-4">4</a>
+                <a href="#slide-5">5</a>
+                <div class="slides">
+                    <div id="slide-1">
+                        <h3> Step 1</h3>
+                        <p2> Select a large prime number p and an integer g having a large prime order in F*p. </p2>
+                        <p2 class="cen"> p = 17 and g = 3.</p2>
+
+                        <p2> These two numbers are public information.</p2>
+                    </div>
+                    <div id="slide-2">
+                        <h3> Step 2 </h3>
+                        <p2> Alice and Bob both choose a secret number. </p2>
+
+                        <p2 class="cen"> A = 100 for Alice. <br>B = 68 for Bob. </p2>
+
+                        <p2> Alice calculates her public key (her "ag" in the video) as: </p2>
+                        <p2 class="cen"> a = g ^(A) (mod p).
+                            <br> a = 13.</p2>
+
+                        <p2> While Bob calculates his public key (the "bg" in the video) as: </p2>
+                        <p2 class="cen"> b = g ^(B) (mod p). <br> b = 13.</p2>
+                    </div>
+                    <div id="slide-3">
+                        <h3> Step 3 </h3>
+                        <p2 class="cen"> Alice and Bob trade their new calculated numbers in the public domain. Bob now
+                            has access to a and Alice has access to b, but Big Brother only has access to a and b, NOT
+                            the private A or B.</p2>
+                    </div>
+                    <div id="slide-4">
+                        <h3> Step 4 </h3>
+                        <p2> It's time for mathematical functions to shine. Alice has all the pieces she needs to make
+                            the shared key: b, A, and p. She creates the key as follows:</p2>
+
+                        <p2 class="cen"> K = b ^ (A) (mod p).<br> K = 1. </p2>
+
+                        <p2> At the same time, Bob is able to create the same shared key by putting together a, B, and
+                            p. His equation is:</p2>
+
+                        <p2 class="cen"> K = a ^ (B) (mod p). <br> K = 1. </p2>
+                    </div>
+                    <div id="slide-5">
+                        <h3> Step 5 </h3>
+                        <p2> Success! Both Alice and Bob have a identical key of 1, leaving Big Brother stumped. They
+                            can now use that key to secure any messages that travels under the eyes of Big Brother using
+                            a symmetric encryption.</p2>
+
+                        <p2> If you want to learn more about the math involved in the Diffie-Hellman key exchange , <a
+                                href="https://youtu.be/Yjrfm_oRO0w"> click here!</a> </p2>
+
+                    </div>
+                    <div id="slide-6">
+                    </div>
+                </div>
+            </div>
+
+            <h3> Your Turn </h3>
+            <p2> Now it's time for you to get your hands dirty. Pull out a pencil and a calculator, and have a crack at
+                performing a Diffie-Hellman key exchange.</p2>
+
+            <!--EXERCISE !-->
+            <!-- A=75,B=83,a=30,b=11,K=30 -->
+            <h4> Exercise 1 </h4>
+            <p2> You are Alice. You decide to create a shared secret key with Bob, choosing the number 31 as your prime
+                number and 3 as your "generator" g. <br><br> (part a): If you choose the number 75 for your private
+                number A, what is the value of public key a?</p2>
+            <!--Blank to check answer-->
+            <p2> (part b): You and Bob exchange public keys, giving you b = 11. Find the shared key K. </p2>
+            <!--Blank to check answer-->
+
+            <!--EXERCISE 2-->
+            <!--A=98,B=64,a=36,b=71,K=15-->
+            <h4> Exercise 2 </h4>
+            <p2> You are now Bob. You decide to create a shared secret key with Susan, choosing the number 77 as your
+                prime number and 13 as your "generator" g. <br><br> (part a): If you choose the number 64 for your
+                private number B, what is the value of public key b?</p2>
+            <!--Blank to check answer-->
+            <p2> (part b): You and Susan exchange public keys, giving you a = 36. Find the shared key K. </p2>
+            <!--Blank to check answer-->
+
         </div>
     </div>
 
