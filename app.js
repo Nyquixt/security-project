@@ -18,7 +18,7 @@ app.use(routes);
 
 //home route
 app.get('/', (req, res) => {
-    res.render('home');
+    res.render('index');
 });
 
 app.listen(process.env.PORT || 3000, () => {
