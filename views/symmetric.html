@@ -51,7 +51,61 @@
     <div class="ContentContainer" style="background-color: white">
         <div class="Content">
            <h2> DES </h2>
+            <p2>The most widely used algorithm in the world, DES was born of the NSA's  (United States National Security Agency) need for a secure cryptographic algorithm in 1977. DES has since been cracked by brute force, as it's key length is only 56 bits. However, it lives on in the upgraded form of 3DES. We'll discuss that later. <br><br> For now, let's take a look at the original DES algorithm: <br><br> </p2>
             
+            <img src="/images/des_structure.jpg" alt="DES Encryption is great!" class="center" style="width: 80%; display: block;">
+            
+            <p2> <br> DES is a block cipher, which means that it operates on 64 bit plaintext blocks and returns ciphertext blocks of the same size. Hence DES creates a permutation among the 2^64 possible arrangements of 64 bits, each being either 0 or 1. <br><br> DES divides each block of 64 bits into two blocks of 32 bits each, a left half block L and a right half R. It uses these divided blocks in part of it's operation. After an initial permutation, the encoding process is broken down into 16 "rounds" of encryption. Each round performs the DES function f on the blocks:<br><br> </p2>
+            
+            <img src="/images/round_function.jpg" alt="DES Encryption is great!" class="center" style="width: 60%; display: block;">
+            
+            <p2> This hodge-podge of operations includes 4 different steps: 
+                <ol>
+                <li> The Expansion P-box</li>
+                <li> Exclusive OR Operation with the 48 bit key</li>
+                <li> Permutation with the S-Boxes</li>
+                <li> The Straight P-box</li>
+                </ol>
+            </p2>
+            
+            
+            <div class="slider">
+  
+              <a href="#slide-1">1</a>
+              <a href="#slide-2">2</a>
+              <a href="#slide-3">3</a>
+              <a href="#slide-4">4</a>
+              <div class="slides">
+                <div id="slide-1">
+                  <h3> The Expansion Permutation box</h3>
+                  
+                  <p2> Since the right half R is only 32 bits and our round key is 48 bits, DES needs to expand R into 48 bits. The algorithm uses a table to do this: </p2>
+                
+                  <img src="/images/des_expand_table.jpg" alt="DES Encryption is great!" class="center" style="width: 60%; display: block;">  
+                    
+                <p2><br> DES rearranges the bits according to the table, where the entries show the new placement of the bits from their initial order.</p2>    
+                </div>
+                  
+                <div id="slide-2">
+                  <h3> XOR with 48 bit key </h3>
+                    <p2> More here later. </p2>
+                </div>
+                <div id="slide-3">
+                  <h3> Perm with the S-Boxes </h3>
+                    <p2> More Here Later. </p2>
+                </div>
+                <div id="slide-4">
+                  <h3> The Straight P-box </h3>
+                    <p2> More here later.</p2>
+                </div>
+                  <div id="slide-5"> 
+                  </div>
+              </div>
+            </div>
+            
+           <h2> AES </h2>
+            
+           <h2> RC4 </h2>    
         </div>
     </div>
     

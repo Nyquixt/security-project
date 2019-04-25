@@ -1,3 +1,60 @@
+
+
+* {
+  box-sizing: border-box;
+}
+
+.slider {
+  width: 100vw;
+  text-align: center;
+  overflow: hidden;
+}
+
+.slides {
+  display: block;
+  overflow-x: auto;
+  
+  border-radius: 5px;
+  
+  scroll-behavior: smooth;
+  
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-points-x: repeat(300px);
+  scroll-snap-type: mandatory;
+}
+.slides::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.slides::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 10px;
+}
+.slides::-webkit-scrollbar-track {
+  background: transparent;
+}
+.slides > div {
+  width: 100vw;
+  height: 100vw;
+  border-radius: 10px;
+  background: #eee;
+  transform-origin: center center;
+  transform: scale(1);
+  transition: transform 0.5s;
+  position: relative;
+  
+  display: block;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+}
+.slides > div:target {
+  transform: scale(0.8);
+}
+
+
+
+
 * {
   box-sizing: border-box;
 }
@@ -50,6 +107,7 @@
   /* position: ; */
   justify-content: center;
   align-items: center;
+    
 }
 
 .slides>div:target {
@@ -78,9 +136,4 @@
   background: #000;
 }
 
-/* Don't need button navigation */
-@supports (scroll-snap-type: none) {
-  .slider>a {
-    display: none;
-  }
 }
