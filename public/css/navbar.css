@@ -7,7 +7,7 @@
 .navbar a {
     font-family: Abel;
     float: center;
-    display:inline;
+    display: inline;
     color: #5200cc;
     text-align: center;
     padding: 14px 30px;
@@ -21,6 +21,4 @@
 
 .navbar a.active {
     text-decoration: overline;
-}
-
 }

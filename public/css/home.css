@@ -1,17 +1,18 @@
 body {
-    color: white;
+  color: purple;
 }
 
 h1 {
   letter-spacing: -15px;
   font-family: Open Sans;
-  color: white;
+  color: purple;
   text-align: center;
   font-size: 200px;
   font-weight: 800;
   line-height: 200px;
 }
-h2{
+
+h2 {
   letter-spacing: -15px;
   font-family: Open Sans;
   color: #5200cc;
@@ -20,12 +21,13 @@ h2{
   font-weight: 800;
   line-height: 200px;
 }
-p2{
+
+p2 {
   letter-spacing: -15px;
   font-family: Open Sans;
   color: #5200cc;
   text-align: center;
   font-size: 100px;
   font-weight: 200;
-  line-height: 200px; 
+  line-height: 200px;
 }
