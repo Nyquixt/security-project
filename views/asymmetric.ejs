@@ -1,25 +1,67 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/home.css">
-    <title>Asymmetric Cipher</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1">
+    <title>Network Security Labs</title>
+    <meta name="description" content="Network Security Labs">
+    <meta name="author" content="Kenzie Clarke">
+
+    <link rel="stylesheet" href="/css/containers.css">
+    <link rel="stylesheet" href="/css/dashedshadow.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/text.css">
+    <link rel="stylesheet" href="/css/slider.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <script src="/js/asymmetric.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Sancreek' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+
 </head>
 
 <body>
-    <h2>Asymmetric Cipher</h2>
-    
 
-    <script src="https://code.jquery.com/jquery-3.3.1.js"
-        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <script src="/js/asym-enc-dec.js"></script>
+    <div class="ContentContainer">
+        <div class="Content">
+            <img src="/images/Network2.png" alt="Icon here" style="max-width: 50%; position: center">
+            <span data-text="Network Security Labs" class="dashed-shadow hello">Network Security Labs</span>
+        </div>
+        <div class="navbar">
+            <div class="navbar-centered">
+                <a href="/index.html">Home </a>
+                <a href="/keyexchange.html">Key Exchange</a>
+                <a href="/symmetric.html">Symmetric </a>
+                <a class="active" href="#">Asymmetric </a>
+            </div>
+        </div>
+    </div>
+
+    <!---BELOW HERE IS THE HOME PAGE SPECIFIC CONTENT--->
+    <div class="ContentContainer" style="background-color: #5200cc; padding-bottom: 6vh; padding-top: 0px;">
+        <h3 style="color:white; text-align:  center; padding-top: 5vh">Asymmetric Encryption</h3>
+        <p class="white" style="line-height: normal; text-align: center; font-size: 3vw "> These algorithms split the
+            secret key into two parts: the public key and the private key.</p>
+        <img src="/images/asym.png" alt="Symmetric Encryption is great!"
+            style="max-width: 80%; background-color: white">
+    </div>
+    <div class="ContentContainer" style="background-color: white">
+        <div class="Content">
+            <h2> RSA </h2>
+
+            <h2> ECC </h2>
+
+            <h2> ElGamal </h2>
+
+        </div>
+    </div>
+
 </body>
 
 </html>
