@@ -7,9 +7,11 @@ var urlencodedParser = bodyParser.urlencoded({
     extended: false
 });
 
-//routes
+// routes
+
+// symmetric
 router.get('/symmetric', (req, res) => {
-    res.render('enc-dec');
+    res.render('symmetric');
 });
 
 router.post('/enc', urlencodedParser, (req, res) => {
@@ -40,6 +42,8 @@ router.post('/dec', urlencodedParser, (req, res) => {
     res.send(plain);
 });
 
+
+// keyexchange
 router.get('/keyexchange', (req, res) => {
     res.render('keyexchange');
 });
@@ -71,8 +75,9 @@ router.post('/prime', urlencodedParser, (req, res) => {
     res.send(data);
 });
 
+// asymmetric
 router.get('/asymmetric', (req, res) => {
-    res.render('asym-enc-dec');
+    res.render('asymmetric');
 });
 
 module.exports = router
