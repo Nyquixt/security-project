@@ -1,10 +1,12 @@
-body {
+.title {
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 60pt;
   background-color: #ffffff;
   text-align: center;
   line-height: 1.2em;
   padding-top: 30px;
+  padding-bottom: 30px;
+  padding-right: 10px;
 }
 
 .dashed-shadow {
