@@ -1,139 +1,79 @@
-
-
-* {
-  box-sizing: border-box;
-}
-
-.slider {
-  width: 100vw;
-  text-align: center;
-  overflow: hidden;
-}
-
-.slides {
-  display: block;
-  overflow-x: auto;
-  
-  border-radius: 5px;
-  
-  scroll-behavior: smooth;
-  
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-points-x: repeat(300px);
-  scroll-snap-type: mandatory;
-}
-.slides::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-.slides::-webkit-scrollbar-thumb {
-  background: black;
-  border-radius: 10px;
-}
-.slides::-webkit-scrollbar-track {
-  background: transparent;
-}
-.slides > div {
-  width: 100vw;
-  height: 100vw;
-  border-radius: 10px;
-  background: #eee;
-  transform-origin: center center;
-  transform: scale(1);
-  transition: transform 0.5s;
+/* Slideshow container */
+.slideshow-container {
   position: relative;
-  
-  display: block;
-  justify-content: center;
-  align-items: center;
-  font-size: 100px;
-}
-.slides > div:target {
-  transform: scale(0.8);
-}
-
-
-
-
-* {
-  box-sizing: border-box;
-}
-
-.slider {
-  width: 100%;
-  text-align: center;
-  overflow: hidden;
-  margin-right: 40px;
-}
-
-.slides {
-  display: flex;
-  overflow-x: auto;
-
-  border-radius: 5px;
-
-  scroll-behavior: smooth;
-
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-points-x: repeat(100%);
-  scroll-snap-type: mandatory;
-}
-
-.slides::-webkit-scrollbar {
-  width: 0px;
-  height: 00px;
-}
-
-.slides::-webkit-scrollbar-thumb {
-  background: black;
-  border-radius: 0px;
-}
-
-.slides::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.slides>div {
-  display: block;
-  padding-left: 5vw;
-  flex-shrink: 0;
-  width: 100%;
-  height: auto;
-  border-radius: 15px;
-  background: #eee;
-  transform-origin: center center;
-  transform: scale(1);
-  transition: transform 0.5s;
-  /* position: ; */
-  justify-content: center;
-  align-items: center;
-    
-}
-
-.slides>div:target {
-  transform: scale(0.8);
-}
-
-.slider>a {
-  display: inline-flex;
-  width: 2vw;
-  height: 1vw;
   background: white;
-  text-decoration: none;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  margin: 0 0 0 0;
+}
+
+/* Slides */
+.mySlides {
+  display: none;
+  padding: 80px;
+  text-align: center;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -30px;
+  padding: 16px;
+  color: #888;
+  font-weight: bold;
   font-size: 20px;
-  position: relative;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
 }
 
-.slider>a:active {
-  top: 1px;
+/* Position the "next button" to the right */
+.next {
+  position: absolute;
+  right: 0;
+  border-radius: 3px 0 0 3px;
 }
 
-.slider>a:focus {
-  background: #000;
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+  color: white;
 }
 
+/* The dot/bullet/indicator container */
+.dot-container {
+  text-align: center;
+  padding: 20px;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+/* Add a background color to the active dot/circle */
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Add an italic font style to all quotes */
+q {font-style: italic;}
+
+/* Add a blue color to the author */
+.author {color: cornflowerblue;}
+
+.grey {
+    color: #708090;
+    font-size: 3vw;
+}
+
+.slide-title {
+    color:#5200cc; 
+    font-size: 4vw;
 }

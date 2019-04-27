@@ -1,0 +1,139 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1">
+    <title>Network Security Labs</title>
+    <meta name="description" content="Network Security Labs">
+    <meta name="author" content="Kenzie Clarke">
+
+    <link rel="stylesheet" href="/public/css/scrollparallax.css">
+    <link rel="stylesheet" href="/public/css/dashedshadow.css">
+    <link rel="stylesheet" href="/public/css/navbar.css">
+    <link rel="stylesheet" href="/public/css/slider.css">
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/public/js/slider.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+    </head>
+    <body>
+        <div id="frame">
+            <article>
+                <div class="title">
+                <img src="/images/Network2.png" width="50%"> 
+                <span data-text="Network Security Labs" class="dashed-shadow hello">Network Security Labs</span>
+                </div>
+                <div class="navbar">
+                    <div class="navbar-centered">
+                      <a href="/index">Home </a>
+                      <a class="active" style="background-color: white" href="#"> Key Exchange</a>
+                      <a  href="/symmetric">Symmetric </a>
+                      <a href="/asymmetric">Asymmetric </a>
+                    </div>
+                </div>
+                <div class="parallax">
+                    <div class="bg_break" style="background-color: white;"> <br> </div>
+                    <div class="bg__regular" style="background-image: url(/images/cyber.jpg);">
+                    </div>
+                </div>
+                <div class="header">
+                    <h1>Diffie Hellman Key Exchange</h1>
+                    <p>This standardized method of creating secret keys has become a neccessity for sending messages via symmetric encryption. Let's take a look at how it's done. </p>
+                </div>
+                <div class="iframe-container">
+                        <iframe src="https://www.youtube.com/embed/NmM9HA2MQGI" allowfullscreen></iframe>
+                    </div>
+                <section>
+                <div class="container">
+                </div>
+                </section>
+                  <section class="parallax">
+                    <div class="bg__break" style="height: 30vh; background-image: url(/images/encrypt.jpg);">
+                    </div>
+                  </section>
+                  <section>
+                    <h2> Diffie-Hellman Algorithm </h2>
+            <p align="center"> Let's dive into the actual key exchange algorithm.<br><br> </p>
+                
+            <img src="/images/keyex.png" alt="Icon here" style="max-width: 80%; position: center">
+                
+        <!-- Slideshow container -->
+        <div class="slideshow-container">
+
+          <!-- Full-width slides/quotes -->
+          <div class="mySlides">
+            <h3 class="slide-title"> Step 1</h3>
+            <p class="grey"> Select a large prime number p and an integer g having a large prime order in F*p. <br> <br> </p>    
+            <p class="grey"> p = 17 and g = 3.</p>
+
+            <p class="grey"> <br> <br>These two numbers are public information.</p>
+          </div>
+
+          <div class="mySlides">
+            <h3 class="slide-title"> Step 2 </h3>
+            <p class="grey"> Alice and Bob both choose a secret number.<br><br> A = 100 for Alice. <br>B = 68 for Bob. <br><br>Alice calculates her public key (her "ag" in the video) as: a = g ^(A) (mod p). <br> a = 13. <br><br>While Bob calculates his public key (the "bg" in the video) as: <br> b = g ^(B) (mod p). <br> b = 13. 
+            </p>      
+            </div>
+
+          <div class="mySlides">
+            <h3 class="slide-title"> Step 3 </h3>
+            <p class="grey"> Alice and Bob trade their new calculated numbers in the public domain. Bob now has access to a and Alice has access to b, but Big Brother only has access to a and b, NOT the private A or B.</p>
+          </div>
+
+          <div class="mySlides">
+            <h3 class="slide-title"> Step 4 </h3>
+            <p class="grey"> It's time for mathematical functions to shine.<br> Alice has all the pieces she needs to make the shared key: b, A, and p. <br><br>She creates the key as follows: K = b ^ (A) (mod p).<br> K = 1. <br><br>At the same time, Bob is able to create the same shared key by putting together a, B, and p.<br> His equation is: K = a ^ (B) (mod p). <br> K = 1. </p>
+            </div>
+
+            <div class="mySlides">
+                <h3 class="slide-title"> Step 5 </h3>
+                <p class="grey"> Success! Both Alice and Bob have a identical key of 1, leaving Big Brother stumped. They can now use that key to secure any messages that travels under the eyes of Big Brother using a symmetric encryption.
+
+                <br><br>If you want to learn more about the math involved in the Diffie-Hellman key exchange , <a href="https://youtu.be/Yjrfm_oRO0w"> click here!</a> </p></div>
+
+          <!-- Next/prev buttons -->
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+
+        <!-- Dots/bullets/indicators -->
+        <div class="dot-container">
+          <span class="dot" onclick="currentSlide(1)"></span> 
+          <span class="dot" onclick="currentSlide(2)"></span> 
+          <span class="dot" onclick="currentSlide(3)"></span> 
+          <span class="dot" onclick="currentSlide(4)"></span> 
+          <span class="dot" onclick="currentSlide(5)"></span> 
+        </div>
+                
+   
+            <h3> Your Turn </h3>
+            <p2> Now it's time for you to get your hands dirty. Pull out a pencil and a calculator, and have a crack at performing a Diffie-Hellman key exchange.</p2>
+            
+            <!--EXERCISE !-->
+            <!-- A=75,B=83,a=30,b=11,K=30 -->
+            <h4> Exercise 1 </h4>
+            <p2> You are Alice. You decide to create a shared secret key with Bob, choosing the number 31 as your prime number and 3 as your "generator" g. <br><br> (part a): If you choose the number 75 for your private number A, what is the value of public key a?</p2>
+                <!--Blank to check answer-->
+            <p2> (part b): You and Bob exchange public keys, giving you b = 11. Find the shared key K. </p2>
+             <!--Blank to check answer-->
+            
+            <!--EXERCISE 2-->
+            <!--A=98,B=64,a=36,b=71,K=15-->
+            <h4> Exercise 2 </h4>
+            <p2> You are now Bob. You decide to create a shared secret key with Susan, choosing the number 77 as your prime number and 13 as your "generator" g. <br><br> (part a): If you choose the number 64 for your private number B, what is the value of public key b?</p2>
+                <!--Blank to check answer-->
+            <p2> (part b): You and Susan exchange public keys, giving you a = 36. Find the shared key K. </p2>
+             <!--Blank to check answer-->
+            
+        <!-- Hidden section revealing a Diffie-Hellman exchange calculator?? -->
+            
+           
+                <!-- Insert Next Section Button-->
+             <form> <button id="next"> Next </button> </form>  
+             </section>
+    </article>
+    </div>
+ </body>

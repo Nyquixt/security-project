@@ -1,45 +1,133 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/home.css">
-    <title>Symmetric Cipher and Decipher</title>
-</head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1">
+    <title>Network Security Labs</title>
+    <meta name="description" content="Network Security Labs">
+    <meta name="author" content="Kenzie Clarke">
 
-<body>
-    <h1>Symmetric Cipher and Decipher</h1>
-    <form>
-        <label for="plaintxt">Plaintext</label>
-        <input type="text" name="plaintxt" id="plaintxt">
-        <label for="algo">Algorithm</label>
-        <select>
-            <option value="aes-192-cbc">aes-192-cbc</option>
-            <option value="aes-256-cbc">aes-256-cbc</option>
-            <option value="des-cbc">des-cbc</option>
-            <option value="des-ede3-cbc">des-ede3-cbc</option>
-            <option value="rc4">rc4</option>
-        </select>
-        <label for="passwd">Password</label>
-        <input type="text" name="passwd" id="passwd">
-        <label for="ciphertxt">Ciphertext</label>
-        <input type="text" name="ciphertxt" id="ciphertxt">
-        <button id="enc">Encrypt</button>
-        <button id="dec">Decrypt</button>
-    </form>
-    <div>
-        <p></p>
+    <link rel="stylesheet" href="/public/css/scrollparallax.css">
+    <link rel="stylesheet" href="/public/css/dashedshadow.css">
+    <link rel="stylesheet" href="/public/css/navbar.css">
+    <link rel="stylesheet" href="/public/css/slider.css">
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/public/js/slider.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+    </head>
+    <body>
+        <div id="frame">
+            <article>
+                <div class="title">
+                <img src="/images/Network2.png" width="50%">  
+                <span data-text="Network Security Labs" class="dashed-shadow hello">Network Security Labs</span>
+                </div>
+                <div class="navbar">
+                    <div class="navbar-centered">
+                      <a href="/index">Home </a>
+                      <a href="/key-exchange"> Key Exchange</a>
+                      <a  class="active" style="background-color: white" href="#">Symmetric </a>
+                      <a href="/asymmetric">Asymmetric </a>
+                    </div>
+                </div>
+                <div class="parallax">
+                    <div class="bg_break" style="background-color: white;"> <br> </div>
+                    <div class="bg__regular" style="background-image: url(/images/cyber.jpg);">
+                    </div>
+                </div>
+                <div class="header">
+                    <h1>Symmetric Encryption</h1>
+                    <p>These algorithms use only one (secret) key to both encrypt and decrypt information. </p>
+                </div>
+                <div class="iframe-container">
+                        <iframe src="https://www.youtube.com/embed/NmM9HA2MQGI" allowfullscreen></iframe>
+                    </div>
+                <section>
+                <div class="container">
+                </div>
+                </section>
+                  <section class="parallax">
+                    <div class="bg__break" style="height: 30vh; background-image: url(/images/encrypt.jpg);">
+                    </div>
+                  </section>
+                  <section>
+                    <h2> DES </h2>
+            <p2>The most widely used algorithm in the world, DES was born of the NSA's  (United States National Security Agency) need for a secure cryptographic algorithm in 1977. DES has since been cracked by brute force, as it's key length is only 56 bits. However, it lives on in the upgraded form of 3DES. We'll discuss that later. <br><br> For now, let's take a look at the original DES algorithm: <br><br> </p2>
+            
+            <img src="/images/des_structure.jpg" alt="DES Encryption is great!" class="center" style="width: 80%; display: block;">
+            
+            <p2> <br> DES is a block cipher, which means that it operates on 64 bit plaintext blocks and returns ciphertext blocks of the same size. Hence DES creates a permutation among the 2^64 possible arrangements of 64 bits, each being either 0 or 1. <br><br> DES divides each block of 64 bits into two blocks of 32 bits each, a left half block L and a right half R. It uses these divided blocks in part of it's operation. After an initial permutation, the encoding process is broken down into 16 "rounds" of encryption. Each round performs the DES function f on the blocks:<br><br> </p2>
+            
+            <img src="/images/round_function.jpg" alt="DES Encryption is great!" class="center" style="width: 60%; display: block;">
+            
+            <p2> This hodge-podge of operations includes 4 different steps: 
+                <ol>
+                <li> The Expansion P-box</li>
+                <li> Exclusive OR Operation with the 48 bit key</li>
+                <li> Permutation with the S-Boxes</li>
+                <li> The Straight P-box</li>
+                </ol>
+            </p2>
+                
+        <!-- Slideshow container -->
+        <div class="slideshow-container">
+
+          <!-- Full-width slides/quotes -->
+          <div class="mySlides">
+            <h3 style="slide-title"> The Expansion Permutation box</h3>
+                  
+                  <p2> Since the right half R is only 32 bits and our round key is 48 bits, DES needs to expand R into 48 bits. The algorithm uses a table to do this: </p2>
+                
+                  <img src="/images/des_expand_table.jpg" alt="DES Encryption is great!" class="center" style="width: 60%; display: block;">  
+                    
+                <p2><br> DES rearranges the bits according to the table, where the entries show the new placement of the bits from their initial order.</p2> 
+          </div>
+
+          <div class="mySlides">
+            <h3 class="slide-title"> Step 2 </h3>
+            <p class="grey"> Alice and Bob both choose a secret number.<br><br> A = 100 for Alice. <br>B = 68 for Bob. <br><br>Alice calculates her public key (her "ag" in the video) as: a = g ^(A) (mod p). <br> a = 13. <br><br>While Bob calculates his public key (the "bg" in the video) as: <br> b = g ^(B) (mod p). <br> b = 13. 
+            </p>      
+            </div>
+
+          <div class="mySlides">
+            <h3 class="slide-title"> Step 3 </h3>
+            <p class="grey"> Alice and Bob trade their new calculated numbers in the public domain. Bob now has access to a and Alice has access to b, but Big Brother only has access to a and b, NOT the private A or B.</p>
+          </div>
+
+          <div class="mySlides">
+            <h3 class="slide-title"> Step 4 </h3>
+            <p class="grey"> It's time for mathematical functions to shine.<br> Alice has all the pieces she needs to make the shared key: b, A, and p. <br><br>She creates the key as follows: K = b ^ (A) (mod p).<br> K = 1. <br><br>At the same time, Bob is able to create the same shared key by putting together a, B, and p.<br> His equation is: K = a ^ (B) (mod p). <br> K = 1. </p>
+            </div>
+
+            <div class="mySlides">
+                <h3 class="slide-title"> Step 5 </h3>
+                <p class="grey"> Success! Both Alice and Bob have a identical key of 1, leaving Big Brother stumped. They can now use that key to secure any messages that travels under the eyes of Big Brother using a symmetric encryption.
+
+                <br><br>If you want to learn more about the math involved in the Diffie-Hellman key exchange , <a href="https://youtu.be/Yjrfm_oRO0w"> click here!</a> </p></div>
+
+          <!-- Next/prev buttons -->
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+
+        <!-- Dots/bullets/indicators -->
+        <div class="dot-container">
+          <span class="dot" onclick="currentSlide(1)"></span> 
+          <span class="dot" onclick="currentSlide(2)"></span> 
+          <span class="dot" onclick="currentSlide(3)"></span> 
+          <span class="dot" onclick="currentSlide(4)"></span> 
+          <span class="dot" onclick="currentSlide(5)"></span> 
+        </div>
+                
+           
+                <!-- Insert Next Section Button-->
+             <form> <button id="next"> Next </button> </form>  
+             </section>
+    </article>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.js"
-        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <script src="/js/symmetric.js"></script>
-</body>
-
+ </body>
 </html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/home.css">
+    <title>Symmetric Cipher and Decipher</title>
+</head>
+
+<body>
+    <h1>Symmetric Cipher and Decipher</h1>
+    <form>
+        <label for="plaintxt">Plaintext</label>
+        <input type="text" name="plaintxt" id="plaintxt">
+        <label for="algo">Algorithm</label>
+        <select>
+            <option value="aes-192-cbc">aes-192-cbc</option>
+            <option value="aes-256-cbc">aes-256-cbc</option>
+            <option value="des-cbc">des-cbc</option>
+            <option value="des-ede3-cbc">des-ede3-cbc</option>
+            <option value="rc4">rc4</option>
+        </select>
+        <label for="passwd">Password</label>
+        <input type="text" name="passwd" id="passwd">
+        <label for="ciphertxt">Ciphertext</label>
+        <input type="text" name="ciphertxt" id="ciphertxt">
+        <button id="enc">Encrypt</button>
+        <button id="dec">Decrypt</button>
+    </form>
+    <div>
+        <p></p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="/js/symmetric.js"></script>
+</body>
+
+</html>
