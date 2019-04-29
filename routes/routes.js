@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
 const crypto = require('crypto');
+const nodersa = require('node-rsa');
 
 var urlencodedParser = bodyParser.urlencoded({
     extended: false
@@ -78,6 +79,26 @@ router.post('/prime', urlencodedParser, (req, res) => {
 // asymmetric
 router.get('/asymmetric', (req, res) => {
     res.render('asymmetric');
+});
+
+router.get('/genkey', (req, res) => {
+    crypto.generateKeyPair('rsa', {
+        modulusLength: 4096,
+        publicKeyEncoding: {
+            type: 'spki',
+            format: 'pem'
+        },
+        privateKeyEncoding: {
+            type: 'pkcs8',
+            format: 'pem' 
+        }
+    }, (err, publicKey, privateKey) => {
+        if(err) throw err;
+        res.send({
+            publicKey: publicKey,
+            privateKey: privateKey
+        })
+    });
 });
 
 // scroll test
