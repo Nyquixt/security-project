@@ -1,24 +1,35 @@
 <!doctype html>
 
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1">
-    <title>Network Security Labs</title>
-    <meta name="description" content="Network Security Labs">
-    <meta name="author" content="Kenzie Clarke">
 
-    <link rel="stylesheet" href="/css/scrollparallax.css">
-    <link rel="stylesheet" href="/css/dashedshadow.css">
-    <link rel="stylesheet" href="/css/navbar.css">
-    <link rel="stylesheet" href="/css/slider.css">
-    
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="/js/slider.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
-    </head>
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1">
+	<title>Network Security Labs</title>
+	<meta name="description" content="Network Security Labs">
+	<meta name="author" content="Kenzie Clarke">
+
+	<link rel="stylesheet" href="/css/scrollparallax.css">
+	<link rel="stylesheet" href="/css/dashedshadow.css">
+	<link rel="stylesheet" href="/css/navbar.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+	</script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+	</script>
+	<script src="/js/slider.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+</head>
+
     <body>
         <div id="frame">
             <article>
@@ -43,13 +54,7 @@
                     <h1>Symmetric Encryption</h1>
                     <p>These algorithms use only one (secret) key to both encrypt and decrypt information. </p>
                 </div>
-                <div class="iframe-container">
-                        <iframe src="https://www.youtube.com/embed/NmM9HA2MQGI" allowfullscreen></iframe>
-                    </div>
-                <section>
-                <div class="container">
-                </div>
-                </section>
+              <img src="/images/sym.png" width="80%" style="display: block; margin: auto; padding-top: 5vw;">
                   <section class="parallax">
                     <div class="bg__break" style="height: 30vh; background-image: url(/images/encrypt.jpg);">
                     </div>
@@ -71,61 +76,10 @@
                 <li> Permutation with the S-Boxes</li>
                 <li> The Straight P-box</li>
                 </ol>
-            </p2>
-                
-        <!-- Slideshow container -->
-        <div class="slideshow-container">
-
-          <!-- Full-width slides/quotes -->
-          <div class="mySlides">
-            <h3 class="slide-title"> The Expansion Permutation box</h3>
-                  
-                  <p2> Since the right half R is only 32 bits and our round key is 48 bits, DES needs to expand R into 48 bits. The algorithm uses a table to do this: </p2>
-                
-                  <img src="/images/des_expand_table.jpg" alt="DES Encryption is great!" class="center" style="width: 60%; display: block;">  
-                    
-                <p2><br> DES rearranges the bits according to the table, where the entries show the new placement of the bits from their initial order.</p2> 
-          </div>
-
-          <div class="mySlides">
-            <h3 class="slide-title"> Step 2 </h3>
-            <p class="grey"> Alice and Bob both choose a secret number.<br><br> A = 100 for Alice. <br>B = 68 for Bob. <br><br>Alice calculates her public key (her "ag" in the video) as: a = g ^(A) (mod p). <br> a = 13. <br><br>While Bob calculates his public key (the "bg" in the video) as: <br> b = g ^(B) (mod p). <br> b = 13. 
-            </p>      
-            </div>
-
-          <div class="mySlides">
-            <h3 class="slide-title"> Step 3 </h3>
-            <p class="grey"> Alice and Bob trade their new calculated numbers in the public domain. Bob now has access to a and Alice has access to b, but Big Brother only has access to a and b, NOT the private A or B.</p>
-          </div>
-
-          <div class="mySlides">
-            <h3 class="slide-title"> Step 4 </h3>
-            <p class="grey"> It's time for mathematical functions to shine.<br> Alice has all the pieces she needs to make the shared key: b, A, and p. <br><br>She creates the key as follows: K = b ^ (A) (mod p).<br> K = 1. <br><br>At the same time, Bob is able to create the same shared key by putting together a, B, and p.<br> His equation is: K = a ^ (B) (mod p). <br> K = 1. </p>
-            </div>
-
-            <div class="mySlides">
-                <h3 class="slide-title"> Step 5 </h3>
-                <p class="grey"> Success! Both Alice and Bob have a identical key of 1, leaving Big Brother stumped. They can now use that key to secure any messages that travels under the eyes of Big Brother using a symmetric encryption.
-
-                <br><br>If you want to learn more about the math involved in the Diffie-Hellman key exchange , <a href="https://youtu.be/Yjrfm_oRO0w"> click here!</a> </p></div>
-
-          <!-- Next/prev buttons -->
-          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-          <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        </div>
-
-        <!-- Dots/bullets/indicators -->
-        <div class="dot-container">
-          <span class="dot" onclick="currentSlide(1)"></span> 
-          <span class="dot" onclick="currentSlide(2)"></span> 
-          <span class="dot" onclick="currentSlide(3)"></span> 
-          <span class="dot" onclick="currentSlide(4)"></span> 
-          <span class="dot" onclick="currentSlide(5)"></span> 
-        </div>
-                
+            </p2> 
            
                 <!-- Insert Next Section Button-->
-             <form> <button id="next"> Next </button> </form>  
+                <a href="/asymmetric" > <button type="button" class="btn btn-dark" id="next" style="float: right" > Next </button> </a>  
              </section>
     </article>
     </div>

@@ -81,8 +81,8 @@ router.get('/asymmetric', (req, res) => {
 });
 
 // scroll test
-router.get('/scrolltest', (req, res) => {
-    res.render('scrolltest');
+router.get('/index', (req, res) => {
+    res.render('index');
 });
 
 module.exports = router
