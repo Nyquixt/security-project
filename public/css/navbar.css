@@ -9,6 +9,7 @@
 .navbar-centered {
     display: inline-block;
     float: none;
+    margin: auto;
 }
 .navbar a {
     font-family: Abel;

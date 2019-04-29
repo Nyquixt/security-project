@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,800');
 @import url('https://fonts.googleapis.com/css?family=Abel:400,800');
 
-html, body {
+html,
+body {
   font-family: 'Open Sans', Abel;
   color: #ebebeb;
   background-color: #5200cc;
@@ -37,7 +38,8 @@ html, body {
   box-shadow: inset 0 0 1em #111;
 }
 
-.parallax .bg__regular, .parallax .bg__bazz {
+.parallax .bg__regular,
+.parallax .bg__bazz {
   height: 40vw;
 }
 
@@ -73,7 +75,7 @@ html, body {
 }
 
 .parallax .capture .center {
-    float: none;
+  float: none;
 }
 
 article .container {
@@ -91,17 +93,20 @@ article .header {
   background-color: rgba(255, 255, 255, 0.75);
 }
 
-article h1, article h2, article p {
+article h1,
+article h2,
+article p {
   margin: 0 0 0.333em;
   max-width: 100vw;
   font-family: Abel;
 }
 
 article h2 {
-font-size: 4vw;
+  font-size: 4vw;
 }
+
 article p {
- font-size: 2vw;
+  font-size: 2vw;
 }
 
 article section {
@@ -161,16 +166,16 @@ article section.parallax {
   position: relative;
   margin: 5vh 0px 0px 0px;
 }
- 
+
 .iframe-container iframe {
-   border: 0;
-   height: 95%;
-   left: 2vw;
-   position: absolute;
-   top: 0;
-   width: 95%;
+  border: 0;
+  height: 95%;
+  left: 2vw;
+  position: absolute;
+  top: 0;
+  width: 95%;
 }
- 
+
 /* 4x3 Aspect Ratio */
 .iframe-container-4x3 {
   padding-top: 75%;
