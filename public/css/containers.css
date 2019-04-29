@@ -1,71 +1,9 @@
-html,
-body {
-  scroll-behavior: smooth;
-  max-width: 100%;
-
-}
-
-.MainContainer {
-  perspective: 1px;
-  transform-style: preserve-3d;
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: scroll;
-}
-
-.ContentContainer {
-  display: block;
-  background-color: white;  
-  z-index: 1;
-  background-size: cover;
-
-}
-
-.Content {
-  max-width: 90%;
-  margin: 0 auto;
-  padding: 5px 0;
-}
-
-.column {
-  margin: 0 2vw;
-}
-
-.left {
-  float: left;
-}
-
-.center {
+img .center {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
-}
-
-.small {
-    padding-top: 10%;
-    padding-left: 10%;
-    width: 30%;
-}
-
-.medium {
-  padding-top: 10%;
-  padding-right: 5%;
-  width: 55%;
-}
-
-.right {
-  float: right;
-}
-
-.ParallaxContainer {
-  display: flex;
-  flex: 1 0 auto;
-  height: 90vw;
-  transform: translateZ(-1px) scale(2);
-  z-index: -1;
-}
-
+  }
+  
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,800');
 @import url('https://fonts.googleapis.com/css?family=Abel:400,800');
 
