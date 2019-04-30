@@ -78,28 +78,117 @@
             <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#feistel" style="float: right">...</button>
               <div id="feistel" class="collapse">
                 <p2> The 4-stage function that is the heart of DES. Each round calls upon this function to alter the R half of the permutated bits. </p2>  
-                  <img src="/images/round_function.jpg" alt="DES Encryption is great!" class="center" style="display:block;margin:auto;width: 80%; display: block;padding: 2em">
+                  <img src="/images/round_function.jpg" alt="DES Encryption is great!" class="center" style="display:block;margin:auto;width: 60%; display: block;padding: 2em">
 
-                  <h2><br>Step 1: Expansion P-box</h2> 
-                  <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#exp" style="float: right">...</button>
-                  <div id="exp" class="collapse">
-                      <img src="/images/permutation_logic.jpg" alt="DES Encryption is great!" class="center" style="width: 90%; display: block;padding: 2em">
-                    <p2> Our round key K_1 is 48 bits, but the right input is only 32 bits. Using permutation logic graphically shown above, this box expands the 32 bits into 48 bits. </p2>  
-                      
-                  </div> 
-                </div>
+                  <ul class="custom-bullet">
+                    <li>
+                      <h2> Step 1: Expansion P-box</h2> 
+                      <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#exp" style="float: right">...</button>
+                      <div id="exp" class="collapse">
+                          <img src="/images/permutation_logic.jpg" alt="DES Encryption is great!" class="center" style="width: 90%; display: block;padding: 2em">
+                        <p2> Our round key K_1 is 48 bits, but the right input is only 32 bits. Using permutation logic graphically shown above, this box expands the 32 bits into 48 bits. <br><br> </p2>  
+                      </div>
+                      </li>
+                      <li> 
+                      <h2> Step 2: XOR with Round Key</h2> 
+                      <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#xor" style="float: right">...</button>
+                      <div id="xor" class="collapse">
+                        <p2> DES performs an Exclusive OR operation to the expanded R half with the round key. <br><br>  </p2>  
+                      </div>
+                      </li>
+                      <li><h2> Step 3: Substitution boxes</h2> 
+                        <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#sbox" style="float: right">...</button>
+                        <div id="sbox" class="collapse">
+                            <img src="/images/s_box_rule.jpg" alt="DES Encryption is great!" class="center" style="width: 90%; display: block;padding: 2em">
+                          <p2> The "confusion" part of DES occurs here. Using 8 S-boxes, each with a 6-bit input and 4-bit output, DES substitutes the values is recieved from the previous operation with the corresponding value into the table entries within each box. The image above is the inside of an S-box, where the table entries are visible.
+                          <br></p2>  
+                        </div>
+                      </li>
+                      <li><h2>Step 4: Straight P-box</h2> 
+                        <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#straight" style="float: right">...</button>
+                        <div id="straight" class="collapse">
+                            <img src="/images/straight_permutation.jpg" alt="DES Encryption is great!" class="center" style="width: 90%; display: block;padding: 2em">
+                          <p2> Lastly, the 32-bit output of the S-boxes is transformed by one last, straight permutation. The resulting output is then either fed into the F function again for another round or passed onto the final permutation. </p2>  
+                        </div>
+                      </li>
+                      </ul>
+                      <p><br></p>
+                    </div>
 
                 <h2><br>Key Structure</h2> 
-            <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#init" style="float: right">...</button>
-              <div id="init" class="collapse">
-                <p2> Sixteen rounds of the F function means 16 48-bit keys are needed. ... </p2>  
-                  <img src="/images/init.jpg" alt="DES Encryption is great!" class="center" style="width: 90%; display: block;padding: 2em">
+            <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#key" style="float: right">...</button>
+              <div id="key" class="collapse">
+                <p2> Sixteen rounds of the F function indicates that sixteen 48-bit keys are needed. </p2>  
+                  <img src="/images/key_generation.jpg" alt="DES Encryption is great!" class="center" style="width: 90%; display: block;padding: 2em">
+                <p2> <br><br> From this image here, you can see that a combination of dropping parity bits, shifting left, and compressing creates 16 unique round keys to be used throughout the rounds of the Feistel function in DES. </p2>
               </div>  
+              <h2><br><br>Exercise 1</h2> 
+              <p> Coming Soon </p>
               </section>
+              <!--AES SECTION-->
               <section>
                   <h1> AES </h1>
-                  <p2> AES is another block cipher established by the U.S National Institute of Standards and Technology (NIST) in 2001. It has been adopted by the U.S government and is still used worldwide as the only publicy accessible cipher approved by the NSA for top secret information. Like DES, it is a symmetric, block cipher. However, it has a stronger block size of 128 bits. <br></p2>
+                  <p2> AES is another block cipher established by the U.S National Institute of Standards and Technology (NIST) in 2001. It has been adopted by the U.S government and is still used worldwide as the only publicy accessible cipher approved by the NSA for top secret information. Like DES, it is a symmetric, block cipher. However, it has a stronger block size of 128 bits.<br><br>
+                      
+                  Here is the diagram detailing AES's algorithm. <br><br></p2>
+
+                  <img src="/images/aes_structure.jpg" alt="AES Encryption is great!" class="center" style="width: 80%; display: block;">
+
+                  <p><br><br></p>
+                  <h2>Pre-round Transformation</h2> 
+            <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#pre" style="float: right">...</button>
+              <div id="pre" class="collapse">
+                <p2> The 64 bit plaintext gets filtered into a straight Permutation box. It has no cryptography significance, but the initial permutation is an inverse of the final permutation. This was included to allow hardware to do the same actions for both encryption and decryption. </p2>  
+                  <img src="/images/init.jpg" alt="DES Encryption is great!" class="center" style="width: 90%; display: block;padding: 2em">
+              </div> 
+              
+              <h2><br>Encryption Rounds</h2> 
+            <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#encround" style="float: right">...</button>
+              <div id="encround" class="collapse">
+                <p2> Unlike DES, the number of rounds in AES depends on the length of the key. For 128-bit keys, 10 rounds are performed; 12 rounds for 192-bit keys, and 14 rounds for 256-bit keys. Each AES round has four sub-processes, using a different 128-bit round key each time. </p2>  
+                  <img src="/images/first_round_process.jpg" alt="DES Encryption is great!" class="center" style="display:block;margin:auto;width: 60%; display: block;padding: 2em">
+
+                  <ul class="custom-bullet">
+                    <li>
+                      <h2> Substitute Bytes </h2> 
+                      <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#subbytes" style="float: right">...</button>
+                      <div id="subbytes" class="collapse">
+                          
+                        <p2> ... <br><br> </p2>  
+                      </div>
+                      </li>
+                      <li> 
+                      <h2> Shift Rows</h2> 
+                      <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#shiftrows" style="float: right">...</button>
+                      <div id="shiftrows" class="collapse">
+                        <p2> ...<br><br>  </p2>  
+                      </div>
+                      </li>
+                      <li><h2> Mix Columns</h2> 
+                        <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#mixc" style="float: right">...</button>
+                        <div id="mixc" class="collapse">
+                         <p2> ...<br></p2>  
+                        </div>
+                      </li>
+                      <li><h2> Add Round Key</h2> 
+                        <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#addkey" style="float: right">...</button>
+                        <div id="addkey" class="collapse">
+                            <p2> ... </p2>  
+                        </div>
+                      </li>
+                      </ul>
+                      <p><br></p>
+                    </div>
+
+                <h2><br>Key Expansion</h2> 
+            <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#key" style="float: right">...</button>
+              <div id="key" class="collapse">
+                <p2> ... </p2>  
+                  <img src="/images/key_generation.jpg" alt="DES Encryption is great!" class="center" style="width: 90%; display: block;padding: 2em">
+                <p2> <br><br> ...
+              </div>  
               </section>
+              <!--RC4 SECTION-->
               <section>
                   <h1> RC4 </h1>
                   <p2> RC4 was designed by Ron Rivest of RSA security in the late 1980's. Leaked in 1994, the algorithm became public knowledge and has been used in many encryption protocols and standards, including WPA, SSL/TLS (until 2015). Many problems with the algorithm have been found, and it is no longer considered safe to use. Unlike DES and AES, RC4 is a stream cipher.<br><br> </p2>
