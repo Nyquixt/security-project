@@ -65,7 +65,7 @@
             <img src="/images/des_structure.jpg" alt="DES Encryption is great!" class="center" style="width: 80%; display: block;">
             
             <p2> <br> DES is a block cipher, which means that it operates on 64 bit plaintext blocks and returns ciphertext blocks of the same size. Hence DES creates a permutation among the 2^64 possible arrangements of 64 bits, each being either 0 or 1. <br><br> DES divides each block of 64 bits into two blocks of 32 bits each, a left half block L and a right half R. Every round alters the R half of the bits, and switches L and R at the end. This means there are 8 rounds of L being encrypted and 8 rounds of R being encrypted.
-              <br><br></p2>
+              <br><br>Click on the right-hand grey boxes to expand the section!<br><br></p2>
              
               <h2>Initial & Final Permutation</h2> 
             <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#init" style="float: right">...</button>
@@ -125,6 +125,10 @@
               <h2><br><br>Exercise 1</h2> 
               <p> Coming Soon </p>
               </section>
+              <section>
+                  <h1> 3DES </h1>
+                  <p2> As implied by the name, 3DES is cipher based on DES. In fact, it's pretty much DES run three times. Each DES operation can use a different 56-bit key, creating a much stronger algorithm. However, this also makes it three times <i>slower</i>. For this reason, it has been replaced in popularity by this next cipher - AES. </p2> 
+                  </section>
               <!--AES SECTION-->
               <section>
                   <h1> AES </h1>
@@ -136,10 +140,9 @@
 
                   <p><br><br></p>
                   <h2>Pre-round Transformation</h2> 
-            <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#pre" style="float: right">...</button>
+            <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#pre" style="float: right"> ...  </button>
               <div id="pre" class="collapse">
-                <p2> The 64 bit plaintext gets filtered into a straight Permutation box. It has no cryptography significance, but the initial permutation is an inverse of the final permutation. This was included to allow hardware to do the same actions for both encryption and decryption. </p2>  
-                  <img src="/images/init.jpg" alt="DES Encryption is great!" class="center" style="width: 90%; display: block;padding: 2em">
+                <p2> The Pre-round transformation begins by XORing a 128 bit round key with the 128 bit plaintext. AES chooses to encrypt the plaintext in byte format, rather than in bits. So the 128 bits then become sixteen bytes, arranged in a four by four matrix for the rounds. </p2>  
               </div> 
               
               <h2><br>Encryption Rounds</h2> 
@@ -150,43 +153,38 @@
 
                   <ul class="custom-bullet">
                     <li>
-                      <h2> Substitute Bytes </h2> 
-                      <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#subbytes" style="float: right">...</button>
-                      <div id="subbytes" class="collapse">
-                          
-                        <p2> ... <br><br> </p2>  
-                      </div>
+                      <h2> Substitute Bytes </h2>
+                        <p2> Using a fixed table (S-box) given by the AES algorithm, each of the 16 input bytes are substituted. The output is another 4x4 matrix. <br><br> </p2>
                       </li>
                       <li> 
                       <h2> Shift Rows</h2> 
-                      <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#shiftrows" style="float: right">...</button>
-                      <div id="shiftrows" class="collapse">
-                        <p2> ...<br><br>  </p2>  
-                      </div>
+                        <p2> The rows of the 4x4 matriz are shifted to the left; entries that fall off are inserted back into the matrix via the right side. The pattern is as follows:<br><br> </p2>
+                        <p2>
+                        The first row: no shift.<br> 
+                        The second row: one byte to the left. <br>
+                        The third row: two bytes to the left.<br>
+                        The fourth row: three bytes to the left  <br><br>
+                        The resulting matrix is the same size. <br><br></p2>
                       </li>
                       <li><h2> Mix Columns</h2> 
-                        <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#mixc" style="float: right">...</button>
-                        <div id="mixc" class="collapse">
-                         <p2> ...<br></p2>  
-                        </div>
+                         <p2> Using a mathematical function, this section transforms a column of the 4x4 matrix one at a time, resulting in yet another 4x4 matrix of sixteen bytes. Note that this step doesn't occur during the last round.<br><br></p2>  
                       </li>
                       <li><h2> Add Round Key</h2> 
-                        <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#addkey" style="float: right">...</button>
-                        <div id="addkey" class="collapse">
-                            <p2> ... </p2>  
-                        </div>
+                       <p2> This step regards the 16 bytes as 128 bits again so that it can XOR the matrix with a 128-bit round key. If this is the last round, then it's result is the ciphertext. Otherwise, it's interpreted as a 4x4 matrix again and another round begins.<br><br> </p2>  
+                       
                       </li>
                       </ul>
                       <p><br></p>
                     </div>
 
-                <h2><br>Key Expansion</h2> 
-            <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#key" style="float: right">...</button>
-              <div id="key" class="collapse">
-                <p2> ... </p2>  
-                  <img src="/images/key_generation.jpg" alt="DES Encryption is great!" class="center" style="width: 90%; display: block;padding: 2em">
-                <p2> <br><br> ...
+                <h2><br>Decryption</h2> 
+            <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#dec" style="float: right">...</button>
+              <div id="dec" class="collapse">
+                <p2> The Decryption process contains all the same sections that the Encryption process uses, just in <b>reverse order</b>. Because of this, the encryption and decryption algorithmns need to be implemented differently - despite being so closely related. </p2> 
               </div>  
+
+              <h2><br><br>Exercise 1</h2> 
+              <p> Coming Soon </p>
               </section>
               <!--RC4 SECTION-->
               <section>
@@ -194,10 +192,17 @@
                   <p2> RC4 was designed by Ron Rivest of RSA security in the late 1980's. Leaked in 1994, the algorithm became public knowledge and has been used in many encryption protocols and standards, including WPA, SSL/TLS (until 2015). Many problems with the algorithm have been found, and it is no longer considered safe to use. Unlike DES and AES, RC4 is a stream cipher.<br><br> </p2>
 
                   <h2>What is a Stream Cipher?</h2>
-                  <p2> Me explaining what a stream cipher is here... </p2> 
-                <p><br><br><br><br></p>
+                  <img src="/images/stream.png" alt="An awesome looking stream cipher!" class="center" style="width: 60%; display: block;">
+                  <p2> A stream cipher is an encryption algorithm that encrypts plaintext with a variable length, one bit or byte at a time. It uses an infinite stream of pseudorandom bits as the key. The cipher is designed to emulate the "perfect secrecy" of the One-Time Pad.  <br><br></p2> 
+
+                  <h2>How it Works</h2>
+                  <p2> Unlike the complicated task of encrypting a message using DES or AES, RC4 only manipulates the plaintext in one way: combining it with a keystream using bit-wise exclusive-or. <br><br> The real work is generating the keystream. RC4 uses a permutation of all 256 possible bytes and two 8-bit index-pointers in a Psuedo-random generation algorithm (PRGA). It creates this permutation with a key-scheudling algorithm(KSA).</p2> 
+
+                <p><br><br></p>
+
+                <p2> In the next section, we're going to take a look at the other types of modern ciphers, ones that use multiple keys: Asymmetric Encryption.<br><br></p2>
                 <!-- Insert Next Section Button-->
-                <a href="/asymmetric" > <button type="button" class="btn btn-dark btn-block" id="next" style="float: right" > Next </button> </a>  
+                <a href="/asymmetric" > <button type="button" class="btn btn-dark btn-block" id="next" style="font-size: 2vw" > Next </button> </a>  
              </section>
     </article>
     </div>
