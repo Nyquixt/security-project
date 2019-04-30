@@ -3,80 +3,133 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta content="width=device-width, initial-scale=1">
-	<title>Network Security Labs</title>
-	<meta name="description" content="Network Security Labs">
-	<meta name="author" content="Kenzie Clarke">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1">
+    <title>Network Security Labs</title>
+    <meta name="description" content="Network Security Labs">
+    <meta name="author" content="Kenzie Clarke">
 
-	<link rel="stylesheet" href="/css/parallax.css">
-	<link rel="stylesheet" href="/css/dashedshadow.css">
-	<link rel="stylesheet" href="/css/navbar.css">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/parallax.css">
+    <link rel="stylesheet" href="/css/dashedshadow.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-	</script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-	</script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-	</script>
-	<script src="/js/slider.js"></script>
-	<link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="/js/asymmetric.js"></script>
+    <!-- <script src="/js/slider.js"></script> -->
+    <link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+
+    <style>
+        .text-collapse {
+            text-overflow: ellipsis;
+            width: 80%;
+            white-space: nowrap;
+            overflow: hidden;
+            display: block;
+        }
+
+        /* #example {
+            text-align: center;
+        }
+
+        #example div {
+            display: inline-block;
+            text-align: left;
+            margin-left: 10%;
+            margin-right: 10%;
+        } */
+    </style>
 </head>
 
-    <body>
-        <div id="frame">
-            <article>
-                <div class="title">
-                <img src="/images/Network2.png" width="50%">  
+<body>
+    <div id="frame">
+        <article>
+            <div class="title">
+                <img src="/images/Network2.png" width="50%">
                 <span data-text="Network Security Labs" class="dashed-shadow hello">Network Security Labs</span>
+            </div>
+            <div class="navbar">
+                <div class="navbar-centered">
+                    <a href="/">Home </a>
+                    <a href="/keyexchange"> Key Exchange</a>
+                    <a href="/symmetric">Symmetric </a>
+                    <a class="active" style="background-color: white" href="#">Asymmetric </a>
                 </div>
-                <div class="navbar">
-                    <div class="navbar-centered">
-                      <a href="/index">Home </a>
-                      <a href="/keyexchange"> Key Exchange</a>
-                      <a href="/symmetric">Symmetric </a>
-                      <a class="active" style="background-color: white" href="#">Asymmetric </a>
-                    </div>
+            </div>
+            <div class="parallax">
+                <div class="bg_break" style="background-color: white;"> <br> </div>
+                <div class="bg__regular" style="background-image: url(/images/cyber.jpg);">
                 </div>
-                <div class="parallax">
-                    <div class="bg_break" style="background-color: white;"> <br> </div>
-                    <div class="bg__regular" style="background-image: url(/images/cyber.jpg);">
-                    </div>
-                </div>
-                <div class="header">
-                    <h1>Asymmetric Encryption</h1>
-                    <p>These algorithms split the secret key into two parts: the public key and the private key. </p>
-                </div>
-                <div class="iframe-container">
-                        <iframe src="https://www.youtube.com/embed/GSIDS_lvRv4" allowfullscreen></iframe>
-                    </div>
-                <section>
+            </div>
+            <div class="header">
+                <h1>Asymmetric Encryption</h1>
+                <p>These algorithms split the secret key into two parts: the public key and the private key. </p>
+            </div>
+            <div class="iframe-container">
+                <iframe src="https://www.youtube.com/embed/GSIDS_lvRv4" allowfullscreen></iframe>
+            </div>
+            <section>
                 <div class="container">
                 </div>
-                </section>
-                  <section class="parallax">
-                    <div class="bg__break" style="height: 30vh; background-image: url(/images/encrypt.jpg);">
-                    </div>
-                  </section>
-                  <section>
-                  <h2> RSA </h2>
-                      
-                 <h2> ECC </h2>
-                      
+            </section>
+            <section class="parallax">
+                <div class="bg__break" style="height: 30vh; background-image: url(/images/encrypt.jpg);">
+                </div>
+            </section>
+            <section>
+                <h2> RSA </h2>
+
+                <h2> ECC </h2>
+
                 <h2> ElGamal</h2>
-                
-           
+
+                <h2>Simple Example</h2>
+
+                <div id="example">
+                    <div id="alice">
+                        <h3>Alice (Sender)</h3><br>
+                        <button class="btn btn-dark" id="alice-genkey">Generate A Key Pair</button>
+
+                        <button class="btn btn-dark" id="toggle-public">Toggle Public Key</button>
+                        <button class="btn btn-dark" id="toggle-private">Toggle Private Key</button>
+                        <div id="pub"><span style="text-align:left" id="alice-public"></span></div>
+                        <div id="pri"><span style="text-align:left" id="alice-private"></span></div>
+
+                        <p><label for="message">Message: (input some simple text)</label></p>
+                        <input id="message" type="text"><br><br>
+                        <button class="btn btn-dark" id="alice-sign">Encrypt with Alice Private Key</button><br>
+                        <p><label for="enc1">Encrypted Message:</label></p>
+                        <div><span class="text-collapse" id="enc1"></span></div><br>
+                        <button class="btn btn-dark" id="enc">Encrypt with Shared Secret Key</button><br>
+                        <p><label for="encrypted">Encrypted Message: (using AES)</label></p>
+                        <div><span class="text-collapse" id="enc-msg"></span></div><br>
+                    </div>
+                    <div id="bob">
+                        <h3>Bob (Receiver)</h3><br>
+                        <button class="btn btn-dark" id="dec">Decrypt with Shared Secret Key</button><br>
+                        <p><label for="dec">Decrypted Message:</label></p>
+                        <div><span class="text-collapse" id="dec-msg"></span></div><br>
+                        <button class="btn btn-dark" id="dec-og">Decrypt with Alice's Public Key</button><br>
+                        <p><label for="original-msg">Original Message:</label></p>
+                        <div><span id="original-msg"></span></div><br>
+                    </div>
+                </div>
+
                 <!-- Insert Next Section Button-->
                 <a href="/index" > <button type="button" class="btn btn-dark btn-block" id="next" style="float: right" > Home </button> </a>  
              </section>
     </article>
     </div>
- </body>
+</body>
+
 </html>

@@ -15,7 +15,8 @@
     "crypto": "^1.0.1",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
-    "mongoose": "^5.4.7"
+    "mongoose": "^5.4.7",
+    "node-rsa": "^1.0.5"
   },
   "devDependencies": {
     "nodemon": "^1.18.11"
