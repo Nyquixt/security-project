@@ -122,8 +122,31 @@
                   <img src="/images/key_generation.jpg" alt="DES Encryption is great!" class="center" style="width: 90%; display: block;padding: 2em">
                 <p2> <br><br> From this image here, you can see that a combination of dropping parity bits, shifting left, and compressing creates 16 unique round keys to be used throughout the rounds of the Feistel function in DES. </p2>
               </div>  
-              <h2><br><br>Exercise 1</h2> 
-              <p> Coming Soon </p>
+              <h2><br><br>DES Tools</h2> 
+              <p> Try it out for yourself! Using the DES tools we have provided, try to encrypt and decrypt a message of your choice! </p>
+
+              <form>
+                  <label class for="plaintxt">Plaintext</label>
+                  <input type="text" name="plaintxt" id="plaintxt">
+                  <label for="algo">Algorithm</label>
+                  <select>
+                      <option value="des-cbc">des-cbc</option>
+                  </select>
+                  <label for="passwd">Password</label>
+                  <input class="form-control" placeholder="Password" type="text" name="passwd" id="passwd">
+                  <p><br></p>
+                  <input class="form-control" placeholder="Ciphertext" type="text" name="ciphertxt" id="ciphertxt">
+                  <button id="enc">Encrypt</button>
+                  <button id="dec">Decrypt</button>
+              </form>
+              <div>
+                  <p></p>
+              </div>
+          
+              <script src="https://code.jquery.com/jquery-3.3.1.js"
+                  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+              <script src="/js/symmetric.js"></script>
+
               </section>
               <section>
                   <h1> 3DES </h1>
@@ -183,8 +206,8 @@
                 <p2> The Decryption process contains all the same sections that the Encryption process uses, just in <b>reverse order</b>. Because of this, the encryption and decryption algorithmns need to be implemented differently - despite being so closely related. </p2> 
               </div>  
 
-              <h2><br><br>Exercise 1</h2> 
-              <p> Coming Soon </p>
+              <h2><br><br>AES Tools</h2> 
+              <p> <p> Try it out for yourself! Using the AES tools we have provided, try to encrypt and decrypt a message of your choice! </p> </p>
               </section>
               <!--RC4 SECTION-->
               <section>
