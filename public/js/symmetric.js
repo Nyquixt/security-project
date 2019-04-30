@@ -1,4 +1,6 @@
 $(function(){
+
+    // des
     // encryption
     $('#enc').click(e => {
         e.preventDefault();
@@ -34,4 +36,9 @@ $(function(){
             }
         })
     });
+
+    // aes
+    // enc
+
+    // dec
 });
