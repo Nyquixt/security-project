@@ -16,8 +16,6 @@ router.get('/symmetric', (req, res) => {
 });
 
 router.post('/enc', urlencodedParser, (req, res) => {
-    let data = req.body;
-    console.log(data);
     let plaintxt = req.body.plaintxt;
     let algo = req.body.algo;
     let passwd = req.body.passwd;
@@ -30,8 +28,6 @@ router.post('/enc', urlencodedParser, (req, res) => {
 });
 
 router.post('/dec', urlencodedParser, (req, res) => {
-    let data = req.body;
-    console.log(data);
     let algo = req.body.algo;
     let passwd = req.body.passwd;
     let ciphertxt = req.body.ciphertxt;
@@ -98,6 +94,50 @@ router.get('/genkey', (req, res) => {
             publicKey: publicKey,
             privateKey: privateKey
         })
+    });
+});
+
+router.post('/sign', urlencodedParser, (req, res) => {
+    let privateKey = req.body.privateKey;
+    let message = req.body.message;
+
+    let sign = new nodersa(privateKey);
+    const signedMsg = sign.encryptPrivate(message, 'base64');
+    res.send({
+        signedMsg: signedMsg
+    });
+});
+
+router.post('/enc-w-pub', urlencodedParser, (req, res) => {
+    let signedMsg = req.body.signedMsg;
+    let publicKey = req.body.publicKey;
+    
+    let enc = new nodersa(publicKey);
+    const encMsg = enc.encrypt(signedMsg, 'base64');
+    res.send({
+        encMsg: encMsg
+    });
+});
+
+router.post('/dec-w-pri', urlencodedParser, (req ,res) => {
+    let encMsg = req.body.encMsg;
+    let privateKey = req.body.privateKey;
+
+    let dec = new nodersa(privateKey);
+    const decMsg = dec.decrypt(encMsg, 'base64');
+    res.send({
+        decMsg: decMsg
+    });
+});
+
+router.post('/unsign', urlencodedParser, (req, res) => {
+    let decMsg = req.body.decMsg;
+    let publicKey = req.body.publicKey;
+
+    let unsign = new nodersa(publicKey);
+    const unsignedMsg = unsign.decryptPublic(decMsg, 'utf8');
+    res.send({
+        unsignedMsg: unsignedMsg
     });
 });
 
