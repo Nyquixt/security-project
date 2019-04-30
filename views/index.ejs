@@ -18,56 +18,60 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 </script>
-<script src="/js/slider.js"></script>
+<!-- <script src="/js/slider.js"></script> -->
 <link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
 </head>
 
-    <body>
-        <div id="frame">
-            <article>
-                <div class="title">
-                <img src="/images/Network2.png" width="50%"> 
+<body>
+    <div id="frame">
+        <article>
+            <div class="title">
+                <img src="/images/Network2.png" width="50%">
                 <span data-text="Network Security Labs" class="dashed-shadow hello">Network Security Labs</span>
+            </div>
+            <div class="navbar">
+                <div class="navbar-centered">
+                    <a class="active" href="#">Home </a>
+                    <a href="/keyexchange">Key Exchange</a>
+                    <a href="/symmetric">Symmetric </a>
+                    <a href="/asymmetric">Asymmetric </a>
                 </div>
-                <div class="navbar">
-                    <div class="navbar-centered">
-                      <a class="active" href="#">Home </a>
-                      <a href="/keyexchange">Key Exchange</a>
-                      <a  href="/symmetric">Symmetric </a>
-                      <a href="/asymmetric">Asymmetric </a>
-                    </div>
+            </div>
+            <div class="parallax">
+                <div class="bg_break" style="background-color: white;"> <br> </div>
+                <div class="bg__regular" style="background-image: url(/images/cyber.jpg);">
                 </div>
-                <div class="parallax">
-                    <div class="bg_break" style="background-color: white;"> <br> </div>
-                    <div class="bg__regular" style="background-image: url(/images/cyber.jpg);">
-                    </div>
-                </div>
-                <div class="header">
-                    <h1 style="">Encryption</h1>
-                    <p>the process of encoding a message or information so that only authorized parties can access it and everyone else cannot. </p>
-                </div>
-                <div class="iframe-container">
-                        <iframe width=70% height=300 src="https://www.youtube.com/embed/ERp8420ucGs?start=21"  allowfullscreen></iframe>
-                    </div>
-                <section>
+            </div>
+            <div class="header">
+                <h1>Encryption</h1>
+                <p>the process of encoding a message or information so that only authorized parties can access it and
+                    everyone else cannot. </p>
+            </div>
+            <div class="iframe-container">
+                <iframe width=70% height=300 src="https://www.youtube.com/embed/ERp8420ucGs?start=21"
+                    allowfullscreen></iframe>
+            </div>
+            <section>
                 <div class="container">
                 </div>
-                </section>
-                  <section class="parallax">
-                    <div class="bg__break" style="height: 30vh; background-image: url(/images/encrypt.jpg);">
-                    </div>
-                  </section>
-                  <section>
-                    <h2 style="font-size: 4vw; text-align: center;"> Symmetric vs. Asymmetric(public key) </h2>
-                    <p> Having watched the video, you now understand the difference between Symmetric encryption and Asymmetric  (public key). Here is a table of the modern encryption algorithms covered throughout these labs:<br> <br></p>
-                    <table id="customers" align="center">
-                    <tr> 
-                        <th>Symmetric</th> 
+            </section>
+            <section class="parallax">
+                <div class="bg__break" style="height: 30vh; background-image: url(/images/encrypt.jpg);">
+                </div>
+            </section>
+            <section>
+                <h2 style="font-size: 4vw; text-align: center;"> Symmetric vs. Asymmetric(public key) </h2>
+                <p> Having watched the video, you now understand the difference between Symmetric encryption and
+                    Asymmetric (public key). Here is a table of the modern encryption algorithms covered throughout
+                    these labs:<br> <br></p>
+                <table id="customers" align="center">
+                    <tr>
+                        <th>Symmetric</th>
                         <th> Asymmertric </th>
                     </tr>
-                    <tr> 
+                    <tr>
                         <td> DES </td>
                         <td> RSA </td>
                     </tr>
@@ -75,16 +79,18 @@
                         <td> AES </td>
                         <td> ECC </td>
                     </tr>
-                    <tr> 
+                    <tr>
                         <td> RC4 </td>
                         <td> ElGamal </td>
                     </tr>
-                    </table>
-                <p style="padding-top: 5vw"> This lab covers a few different forms of modern encryption, as well as the Diffie Helman key exchange process. You will learn about that in the next section.</p>
-        
+                </table>
+                <p style="padding-top: 5vw"> This lab covers a few different forms of modern encryption, as well as the
+                    Diffie Helman key exchange process. You will learn about that in the next section.</p>
+
                 <!-- Insert Next Section Button-->
-                <a href="/keyexchange" > <button type="button" class="btn btn-dark" id="next" style="float: right" > Next </button> </a>
-             </section>
-    </article>
+                <a href="/keyexchange"> <button type="button" class="btn btn-dark" id="next" style="float: right"> Next
+                    </button> </a>
+            </section>
+        </article>
     </div>
- </body>
+</body>
