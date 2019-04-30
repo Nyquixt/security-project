@@ -141,9 +141,4 @@ router.post('/unsign', urlencodedParser, (req, res) => {
     });
 });
 
-// scroll test
-router.get('/index', (req, res) => {
-    res.render('index');
-});
-
 module.exports = router
