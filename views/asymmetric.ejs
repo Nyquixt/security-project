@@ -37,6 +37,17 @@
             overflow: hidden;
             display: block;
         }
+
+        /* #example {
+            text-align: center;
+        }
+
+        #example div {
+            display: inline-block;
+            text-align: left;
+            margin-left: 10%;
+            margin-right: 10%;
+        } */
     </style>
 </head>
 
@@ -84,35 +95,33 @@
 
                 <h2>Simple Example</h2>
 
-                <div>
+                <div id="example">
                     <div id="alice">
                         <h3>Alice (Sender)</h3><br>
                         <button class="btn btn-dark" id="alice-genkey">Generate A Key Pair</button>
-                        <div id="public">
-                            <button class="btn btn-dark" id="toggle-public">Toggle Public Key</button>
-                            <div id="pub"><span id="alice-public"></span></div>
-                        </div>
-                        <div id="private">
-                            <button class="btn btn-dark" id="toggle-private">Toggle Private Key</button>
-                            <div id="pri"><span id="alice-private"></span></div>
-                        </div>
-                        <label for="message">Message: (input some simple text)</label><br>
-                        <input id="message" type="text"><br>
+
+                        <button class="btn btn-dark" id="toggle-public">Toggle Public Key</button>
+                        <button class="btn btn-dark" id="toggle-private">Toggle Private Key</button>
+                        <div id="pub"><span style="text-align:left" id="alice-public"></span></div>
+                        <div id="pri"><span style="text-align:left" id="alice-private"></span></div>
+
+                        <p><label for="message">Message: (input some simple text)</label></p>
+                        <input id="message" type="text"><br><br>
                         <button class="btn btn-dark" id="alice-sign">Encrypt with Alice Private Key</button><br>
-                        <label for="enc1">Encrypted Message:</label>
-                        <div><span class="text-collapse" id="enc1"></span></div>
+                        <p><label for="enc1">Encrypted Message:</label></p>
+                        <div><span class="text-collapse" id="enc1"></span></div><br>
                         <button class="btn btn-dark" id="enc">Encrypt with Shared Secret Key</button><br>
-                        <label for="encrypted">Encrypted (2) Message:</label><br>
-                        <div><span class="text-collapse" id="enc-msg"></span></div>
+                        <p><label for="encrypted">Encrypted Message: (using AES)</label></p>
+                        <div><span class="text-collapse" id="enc-msg"></span></div><br>
                     </div>
                     <div id="bob">
                         <h3>Bob (Receiver)</h3><br>
                         <button class="btn btn-dark" id="dec">Decrypt with Shared Secret Key</button><br>
-                        <label for="dec">Decrypted Message:</label>
-                        <div><span class="text-collapse" id="dec-msg"></span></div>
+                        <p><label for="dec">Decrypted Message:</label></p>
+                        <div><span class="text-collapse" id="dec-msg"></span></div><br>
                         <button class="btn btn-dark" id="dec-og">Decrypt with Alice's Public Key</button><br>
-                        <label for="original-msg">Original Message:</label>
-                        <div><span id="original-msg"></span></div>
+                        <p><label for="original-msg">Original Message:</label></p>
+                        <div><span id="original-msg"></span></div><br>
                     </div>
                 </div>
 

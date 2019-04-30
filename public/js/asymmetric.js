@@ -7,6 +7,8 @@ $(function () {
     $('#toggle-private').hide();
     $('#pri').hide();
 
+    $('#message').val('');
+
     //toggle
     $('#toggle-public').click(e => {
         e.preventDefault();
