@@ -9,7 +9,7 @@
 	<meta name="description" content="Network Security Labs">
 	<meta name="author" content="Kenzie Clarke">
 
-	<link rel="stylesheet" href="/css/scrollparallax.css">
+	<link rel="stylesheet" href="/css/parallax.css">
 	<link rel="stylesheet" href="/css/dashedshadow.css">
 	<link rel="stylesheet" href="/css/navbar.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -60,26 +60,56 @@
                     </div>
                   </section>
                   <section>
-                    <h2> DES </h2>
+                    <h1> DES </h1>
             <p2>The most widely used algorithm in the world, DES was born of the NSA's  (United States National Security Agency) need for a secure cryptographic algorithm in 1977. DES has since been cracked by brute force, as it's key length is only 56 bits. However, it lives on in the upgraded form of 3DES. We'll discuss that later. <br><br> For now, let's take a look at the original DES algorithm: <br><br> </p2>
             
             <img src="/images/des_structure.jpg" alt="DES Encryption is great!" class="center" style="width: 80%; display: block;">
             
-            <p2> <br> DES is a block cipher, which means that it operates on 64 bit plaintext blocks and returns ciphertext blocks of the same size. Hence DES creates a permutation among the 2^64 possible arrangements of 64 bits, each being either 0 or 1. <br><br> DES divides each block of 64 bits into two blocks of 32 bits each, a left half block L and a right half R. It uses these divided blocks in part of it's operation. After an initial permutation, the encoding process is broken down into 16 "rounds" of encryption. Each round performs the DES function f on the blocks:<br><br> </p2>
-            
-            <img src="/images/round_function.jpg" alt="DES Encryption is great!" class="center" style="width: 60%; display: block;">
-            
-            <p2> This hodge-podge of operations includes 4 different steps: 
-                <ol>
-                <li> The Expansion P-box</li>
-                <li> Exclusive OR Operation with the 48 bit key</li>
-                <li> Permutation with the S-Boxes</li>
-                <li> The Straight P-box</li>
-                </ol>
-            </p2> 
-           
+            <p2> <br> DES is a block cipher, which means that it operates on 64 bit plaintext blocks and returns ciphertext blocks of the same size. Hence DES creates a permutation among the 2^64 possible arrangements of 64 bits, each being either 0 or 1. <br><br> DES divides each block of 64 bits into two blocks of 32 bits each, a left half block L and a right half R. Every round alters the R half of the bits, and switches L and R at the end. This means there are 8 rounds of L being encrypted and 8 rounds of R being encrypted.
+              <br><br></p2>
+             
+              <h2>Initial & Final Permutation</h2> 
+            <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#init" style="float: right">...</button>
+              <div id="init" class="collapse">
+                <p2> The 64 bit plaintext gets filtered into a straight Permutation box. It has no cryptography significance, but the initial permutation is an inverse of the final permutation. This was included to allow hardware to do the same actions for both encryption and decryption. </p2>  
+                  <img src="/images/init.jpg" alt="DES Encryption is great!" class="center" style="width: 90%; display: block;padding: 2em">
+              </div> 
+              
+              <h2><br>Feistel (F) Function</h2> 
+            <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#feistel" style="float: right">...</button>
+              <div id="feistel" class="collapse">
+                <p2> The 4-stage function that is the heart of DES. Each round calls upon this function to alter the R half of the permutated bits. </p2>  
+                  <img src="/images/round_function.jpg" alt="DES Encryption is great!" class="center" style="display:block;margin:auto;width: 80%; display: block;padding: 2em">
+
+                  <h2><br>Step 1: Expansion P-box</h2> 
+                  <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#exp" style="float: right">...</button>
+                  <div id="exp" class="collapse">
+                      <img src="/images/permutation_logic.jpg" alt="DES Encryption is great!" class="center" style="width: 90%; display: block;padding: 2em">
+                    <p2> Our round key K_1 is 48 bits, but the right input is only 32 bits. Using permutation logic graphically shown above, this box expands the 32 bits into 48 bits. </p2>  
+                      
+                  </div> 
+                </div>
+
+                <h2><br>Key Structure</h2> 
+            <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#init" style="float: right">...</button>
+              <div id="init" class="collapse">
+                <p2> Sixteen rounds of the F function means 16 48-bit keys are needed. ... </p2>  
+                  <img src="/images/init.jpg" alt="DES Encryption is great!" class="center" style="width: 90%; display: block;padding: 2em">
+              </div>  
+              </section>
+              <section>
+                  <h1> AES </h1>
+                  <p2> AES is another block cipher established by the U.S National Institute of Standards and Technology (NIST) in 2001. It has been adopted by the U.S government and is still used worldwide as the only publicy accessible cipher approved by the NSA for top secret information. Like DES, it is a symmetric, block cipher. However, it has a stronger block size of 128 bits. <br></p2>
+              </section>
+              <section>
+                  <h1> RC4 </h1>
+                  <p2> RC4 was designed by Ron Rivest of RSA security in the late 1980's. Leaked in 1994, the algorithm became public knowledge and has been used in many encryption protocols and standards, including WPA, SSL/TLS (until 2015). Many problems with the algorithm have been found, and it is no longer considered safe to use. Unlike DES and AES, RC4 is a stream cipher.<br><br> </p2>
+
+                  <h2>What is a Stream Cipher?</h2>
+                  <p2> Me explaining what a stream cipher is here... </p2> 
+                <p><br><br><br><br></p>
                 <!-- Insert Next Section Button-->
-                <a href="/asymmetric" > <button type="button" class="btn btn-dark" id="next" style="float: right" > Next </button> </a>  
+                <a href="/asymmetric" > <button type="button" class="btn btn-dark btn-block" id="next" style="float: right" > Next </button> </a>  
              </section>
     </article>
     </div>

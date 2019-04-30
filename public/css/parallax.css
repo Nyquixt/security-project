@@ -86,8 +86,8 @@ article .container {
 
 article .header {
   position: relative;
-  margin: -8em 0 0 0;
-  padding: 1em;
+  margin: -6em 0 0 0;
+  padding: 2em;
   text-align: center;
   font-size: 2vw;
   color: #708090;
@@ -107,7 +107,7 @@ article h2 {
 }
 
 article p {
-  font-size: 2vw;
+  font-size: 3vw;
 }
 
 article section {
