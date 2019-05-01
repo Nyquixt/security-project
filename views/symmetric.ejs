@@ -25,7 +25,6 @@
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 	</script>
 	<script src="/js/symmetric.js"></script>
-	<!-- <script src="/js/slider.js"></script> -->
 	<link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
@@ -130,48 +129,46 @@
               <h2 style="font-size: 3vw">Encrypt</h2>
               <form>
                 <div class="form-group">
-                  <input type="text" class="form-control-lg" placeholder="Plaintext" name="plaintxt" id="plaintxt">
+                  <input type="text" class="form-control-lg" placeholder="Plaintext" name="des-plaintxt" id="des-plaintxt">
 
                 </div>
                 <div class="form-group">
                   <select class="form-control-sm">
-                      <option value="des-cbc">des-cbc</option>
+                      <option value="des-select">des-cbc</option>
                   </select>
                 </div>
                 <div class="form-group">
-                  <input class="form-control-lg" placeholder="Password" type="text" name="passwd" id="passwd">
+                  <input class="form-control-lg" placeholder="Password" type="text" name="des-passwd" id="des-passwd">
                 
                 </div>
                 <div class="form-group">
-                <button class="btn btn-lg btn-dark " id="enc">Encrypt</button>
+                <button class="btn btn-lg btn-dark " id="des-enc">Encrypt</button>
               </div>
                 <div class="form-group">
-                  <input class="form-control-lg" type="text" name="ciphertxt" id="ciphertxt">
+                  <input class="form-control-lg" type="text" name="des-ciphertxt" id="des-ciphertxt">
                 </div>
-                  
-                  <button id="dec">Decrypt</button>
               </form>
             </div>
             <div style="float:right">
                 <h2 style="font-size: 3vw">Decrypt</h2>
                 <form>
                     <div class="form-group">
-                        <input class="form-control-lg" placeholder="Ciphertext" type="text" name="ciphertxt" id="ciphertxt">
+                        <input class="form-control-lg" placeholder="Ciphertext" type="text" name="des-ciphertxt" id="des-ciphertxt">
                       </div>
                   <div class="form-group">
                     <select class="form-control-sm">
-                        <option value="des-cbc">des-cbc</option>
+                        <option value="des-select">des-cbc</option>
                     </select>
                   </div>
                   <div class="form-group">
-                    <input class="form-control-lg" placeholder="Password" type="text" name="passwd" id="passwd">
+                    <input class="form-control-lg" placeholder="Password" type="text" name="des-passwd" id="des-passwd">
                   
                   </div>
                   <div class="form-group">
-                  <button class="btn btn-lg btn-dark " id="dec">Decrypt</button>
+                  <button class="btn btn-lg btn-dark " id="des-dec">Decrypt</button>
                 </div>
                     <div class="form-group">
-                    <input type="text" class="form-control-lg" name="plaintxt" id="plaintxt">
+                    <input type="text" class="form-control-lg" name="des-plaintxt" id="des-plaintxt">
                 </form>
               </div>
               <div>
@@ -184,7 +181,7 @@
 
               </section>
               <section>
-                  <h1> <br><br><br><br> 3DES </h1>
+                  <h1> <br><br><br><br><br> 3DES </h1>
                   <p2> As implied by the name, 3DES is cipher based on DES. In fact, it's pretty much DES run three times. Each DES operation can use a different 56-bit key, creating a much stronger algorithm. However, this also makes it three times <i>slower</i>. For this reason, it has been replaced in popularity by this next cipher - AES. </p2> 
                   </section>
               <!--AES SECTION-->

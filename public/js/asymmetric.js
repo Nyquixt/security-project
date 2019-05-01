@@ -92,7 +92,7 @@ $(function () {
             url: 'http://localhost:3000/unsign',
             method: 'POST',
             data: {
-                decMsg: $('#dec-msg').text(),
+                decMsg: $('#enc1').text(),
                 publicKey: $('#alice-public').text()
             },
             success: function (data) {

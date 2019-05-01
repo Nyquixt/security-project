@@ -83,16 +83,15 @@
                 </div>
             </section>
             <section class="parallax">
-                <div class="bg__break" style="height: 30vh; background-image: url(/images/encrypt.jpg);">
+                <div class="bg__break" style="height: 30vh; background-image: url(/images/enigma.jpg);">
                 </div>
             </section>
             <section>
-                <h2> RSA (the really important part)</h2>
-                <h3>Basics</h3>
-                <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#basics"
-                    style="float: right">...</button>
-                <div id="basics" class="collapse">
-                    <p2>
+                <h1> RSA </h1>
+                <p2>RSA (Rivest–Shamir–Adleman) is one of the first public-key cryptosystems and is widely used for secure data transmission. In such a cryptosystem, the encryption key is public and it is different from the decryption key which is kept secret (private). In RSA, this asymmetry is based on the practical difficulty of the factorization of the product of two large prime numbers, the "factoring problem".<br><br></p2>
+
+                <h2>Notes about RSA</h2>
+                <p2>
                         <ol>
                             <li>based on exponentiation in a finite (Galois) field over integers modulo a prime</li>
                             <li>no substitution or permutation</li>
@@ -100,12 +99,12 @@
                         </ol>
                         RSA is a complement rather than a replacement to symmetric key cryptography.
                     </p2>
-                </div>
-                <h3><br>Key Setup </h3>
+                 <img src="/images/keygeneration.png" style="display: block;margin:auto" width="90%">   
+                <h2><br>Key Generation </h2>
                 <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#setup"
                     style="float: right">...</button>
                 <div id="setup" class="collapse">
-                    <h4>Step 1</h4>
+                    <h3>Step 1</h3>
                     <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#step1"
                         style="float: right">...</button>
                     <div id="step1" class="collapse">
@@ -118,8 +117,7 @@
                             </ol>
                         </p2>
                     </div>
-
-                    <h4>Step 2</h4>
+                    <h3>Step 2</h3>
                     <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#step2"
                         style="float: right">...</button>
                     <div id="step2" class="collapse">
@@ -131,7 +129,7 @@
                         </p2>
                     </div>
 
-                    <h4>Step 3</h4>
+                    <h3>Step 3</h3>
                     <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#step3"
                         style="float: right">...</button>
                     <div id="step3" class="collapse">
@@ -143,7 +141,7 @@
                         </p2>
                     </div>
 
-                    <h4>Step 4</h4>
+                    <h3>Step 4</h3>
                     <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#step4"
                         style="float: right">...</button>
                     <div id="step4" class="collapse">
@@ -156,11 +154,12 @@
                     </div>
                 </div>
 
-                <h3><br>En/Decryption</h3>
+                <h2><br>En/Decryption</h2>
                 <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#enc-dec"
                     style="float: right">...</button>
                 <div id="enc-dec" class="collapse">
-                    <p2>Use exponentiation of integers modulo a prime
+                    <p2> Both Encryption and Decryption are simple tasks once the key has been safely generated. Using mathematical formula's, both the send and reciever can use their appropriate key to lock or unlock the message.<br><br>
+                    <p2>Use exponentiation of integers modulo a prime:
                         <ul>
                             <li>Encryption: <code>C = M<sup>e</sup> mod n</code></li>
                             <li>Decryption: <code>M = C<sup>d</sup> mod n = (M<sup>e</sup>)<sup>d</sup> mod n = M</code>
@@ -171,17 +170,14 @@
                                     <li>Only receiver knows the value of <code>d</code></li>
                                 </ul>
                             </li>
-                            <li>We use public key <code>Pu</code> to en/decrypt private key <code>Pr</code> and vice
-                                versa.</li>
+                            <li>NOTE: If the sender encrypts their message using the public key of the reciever (common practice), then only the reciever's <i>private</i> key <code>Pr</code> will decrypt the message. Similarly, a message encrypted with a private key can only be decrypted by the corresponding <i>public key</i>.</li>
                         </ul>
                     </p2>
 
                 </div>
 
-                <h3><br>Security</h3>
-                <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#sec"
-                    style="float: right">...</button>
-                <div id="sec" class="collapse">
+                <h2><br>Security</h2>
+                    <p2> Like the video explained, RSA's security is founded in two matematical problems: the RSA problem and the problem of factoring large numbers. That is why a full decryption of RSA ciphertext is infeasible in a timely fashion. Here are some of the ideas hackers have posed over time to try an attack this encryption alogrithm: <br><br> </p2>
                     <p2>Possible approaches of attacking RSA are:
                         <ul>
                             <li>Brute force key search - infeasible given size of numbers</li>
@@ -191,13 +187,8 @@
                             <li>Chosen ciphertext attacks - given properties of RSA</li>
                         </ul>
                     </p2>
-                </div>
-
-                <h3><br>Applications</h3>
-                <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#apps"
-                    style="float: right">...</button>
-                <div id="apps" class="collapse">
-                    <h4>Digital Envelopes</h4>
+                <h2><br>Applications</h2>
+                    <h3>Digital Envelopes</h3>
                     <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#dig-env"
                         style="float: right">...</button>
                     <div id="dig-env" class="collapse">
@@ -215,7 +206,7 @@
                         </p2>
                     </div>
 
-                    <h4>Certificates</h4>
+                    <h3>Certificates</h3>
                     <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#certs"
                         style="float: right">...</button>
                     <div id="certs" class="collapse">
@@ -225,69 +216,69 @@
                             Certificates, or signed public key(s), are used to gain trust of a public key.
                         </p2>
                     </div>
-                </div>
-
-                <h2><br>ECC </h2>
-                <h3><br>Example ECC Curves</h3>
-                <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#curves"
-                    style="float: right">...</button>
-                <div id="curves" class="collapse">
-                    <img src="/images/curves.png" alt="ECC Curves" class="center"
-                        style="width: 50%; display: block;padding: 2em">
-                </div>
-
-                <h3><br>ECC Diffie-Hellman Key Exchange</h3>
-                <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#ecc-diff"
-                    style="float: right">...</button>
-                <div id="ecc-diff" class="collapse">
-                    <img src="/images/ecc-diff.png" alt="ECC Diffie-Hellman" class="center"
-                        style="width: 70%; display: block;padding: 2em">
-                </div>
-
-                <h2><br>ElGamal</h2>
-                <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#elgamal"
-                    style="float: right">...</button>
-                <div id="elgamal" class="collapse">
-                    <img src="/images/elgamal.png" alt="ElGamal" class="center"
-                        style="width: 50%; display: block;padding: 2em">
-                    <p2>
-                        ElGamal is a method of calculating piublic and private keys, similar to RSA.
-                    </p2>
-                </div>
-
-                <h2><br>Simple Example with RSA</h2>
-                <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#example"
-                    style="float: right">...</button><br>
-                <div id="example" class="collapse">
-                    <div id="alice">
+                    <h2><br>RSA Tools</h2>
+                    <div id="alice" style="display: inline-block; margin-inline-end: 10%">
                         <h3>Alice (Sender)</h3><br>
                         <button class="btn btn-dark" id="alice-genkey">Generate A Key Pair</button>
 
-                        <button class="btn btn-dark" id="toggle-public">Toggle Public Key</button>
-                        <button class="btn btn-dark" id="toggle-private">Toggle Private Key</button>
+                        <button class="btn btn-dark" id="toggle-public">Show Public Key</button>
+                        <button class="btn btn-dark" id="toggle-private">Show Private Key</button>
                         <div id="pub"><span style="text-align:left" id="alice-public"></span></div>
                         <div id="pri"><span style="text-align:left" id="alice-private"></span></div>
 
-                        <p><label for="message">Message: (input some simple text)</label></p>
-                        <input id="message" type="text"><br><br>
-                        <button class="btn btn-dark" id="alice-sign">Encrypt with Alice Private Key</button><br>
+                        <p><label for="message"><br> Plaintext Message:</label></p>
+                        <input class="form-control" id="message" placeholder="input text here" type="text"><br><br>
+                        <button class="btn btn-dark" id="alice-sign">Encrypt with Alice's Private Key</button><br>
                         <p><label for="enc1">Encrypted Message:</label></p>
-                        <div><span class="text-collapse" id="enc1"></span></div><br>
-                        <button class="btn btn-dark" id="enc">Encrypt with Shared Secret Key</button><br>
-                        <p><label for="encrypted">Encrypted Message: (using AES)</label></p>
-                        <div><span class="text-collapse" id="enc-msg"></span></div><br>
+                        <div><span class="text-collapse" id="enc1" style="word-wrap:break-word;white-space: normal;width:60vw"></span>
+                        </div>
+                        <br>
                     </div>
-                    <div id="bob">
+
+                    <div id="bob" style="display:inline-block; margin-top: 0%">
+                        <div style="display: block">
                         <h3>Bob (Receiver)</h3><br>
-                        <button class="btn btn-dark" id="dec">Decrypt with Shared Secret Key</button><br>
-                        <p><label for="dec">Decrypted Message:</label></p>
-                        <div><span class="text-collapse" id="dec-msg"></span></div><br>
                         <button class="btn btn-dark" id="dec-og">Decrypt with Alice's Public Key</button><br>
                         <p><label for="original-msg">Original Message:</label></p>
-                        <div><span id="original-msg"></span></div><br>
+                        <div><span class="text-collapse" id="original-msg"></span></div><br>
                     </div>
                 </div>
+            </section>
+            <!--ECC SECTION-->
+            <section>
+                <h1>ECC </h1>
+                <img src="/images/curves.png" alt="ECC Curves" class="center"
+                        style="width: 50%; display: block;padding: 2em">
+                <p2> Elliptical curve cryptography (ECC) is a public key encryption technique based on elliptic curve theory that can be used to create faster, smaller, and more efficient cryptographic keys. ECC generates keys through the properties of the elliptic curve equation instead of the traditional method of generation as the product of very large prime numbers.<sup>2</sup><br><br> This can be used to encrypt messages, similar to RSA. However, the matematics behind ECC is also being used in a different way - as an alternative to the traditional Diffie-Hellman Key Exchange.</p2>
+                
 
+                <h2><br>ECC Diffie-Hellman Key Exchange</h2>
+                <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#ecc-diff"
+                    style="float: right">...</button>
+                <div id="ecc-diff" class="collapse">
+                    <p2> Instead of using large prime numbers, Alice and Bob would select parameters on an elliptic curve. This video details how eliptic curves are used to find the variables need for Diffie-Hellman private generation.
+                    <div class="iframe-container">
+                        <iframe src="https://www.youtube.com/embed/NF1pwjL9-DE" allowfullscreen></iframe>
+                     </div>
+                     <h3> <br>The Process Diagram</h3>
+                     <p2> Now that we can put eliptic curves in context, here is a diagram detailing the Diffie-Hellman process, where the public elements have been altered to show us deriving them from an eliptic curve.
+                    <img src="/images/ecc-diff.png" alt="ECC Diffie-Hellman" class="center"
+                        style="width: 70%; display: block;padding: 2em;margin:auto">
+
+                </div>
+            </section>
+            <!--ELGAMAL SECTION-->
+            <section>
+                <h1>ElGamal</h1>
+                <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#elgamal"
+                    style="float: right">...</button>
+                <div id="elgamal" class="collapse">
+                    <p2>The ElGamal cryptosystem was invented in 1985, by Taher Elgamal. Contemporary elliptic curve cryptography (ECC) is an analogue of ElGamal that uses the group of points on an elliptic curve in place of the integers. Like RSA,ElGamal uses mathematics to generate a public and private key. The public key is published, while the private key is kept secret. In ElGamal, however, the underlying matematical relationship between the encryption and decryption relies upon the <i>discrete log problem</i>.<sup>3</sup></p2> 
+                    <img src="/images/elgamal.png" alt="ElGamal" class="center"
+                        style="width: 70%; display: block;padding: 2em;margin:auto">
+                </div>
+
+                <h2><br><br></h2>
                 <!-- Insert Next Section Button-->
                 <a href="/"> <button type="button" class="btn btn-dark btn-block" id="next" style="font-size: 2vw"> Home
                     </button> </a>
