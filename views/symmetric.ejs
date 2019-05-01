@@ -123,22 +123,55 @@
                 <p2> <br><br> From this image here, you can see that a combination of dropping parity bits, shifting left, and compressing creates 16 unique round keys to be used throughout the rounds of the Feistel function in DES. </p2>
               </div>  
               <h2><br><br>DES Tools</h2> 
-              <p> Try it out for yourself! Using the DES tools we have provided, try to encrypt and decrypt a message of your choice! </p>
-
+              <p> Try it out for yourself! Using the DES tools we have provided, try to encrypt and decrypt a message of your choice! <br><br></p>
+              <div style="float:left">
+              <h2 style="font-size: 3vw">Encrypt</h2>
               <form>
-                  <label class for="plaintxt">Plaintext</label>
-                  <input type="text" name="plaintxt" id="plaintxt">
-                  <label for="algo">Algorithm</label>
-                  <select>
+                <div class="form-group">
+                  <input type="text" class="form-control-lg" placeholder="Plaintext" name="plaintxt" id="plaintxt">
+
+                </div>
+                <div class="form-group">
+                  <select class="form-control-sm">
                       <option value="des-cbc">des-cbc</option>
                   </select>
-                  <label for="passwd">Password</label>
-                  <input class="form-control" placeholder="Password" type="text" name="passwd" id="passwd">
-                  <p><br></p>
-                  <input class="form-control" placeholder="Ciphertext" type="text" name="ciphertxt" id="ciphertxt">
-                  <button id="enc">Encrypt</button>
+                </div>
+                <div class="form-group">
+                  <input class="form-control-lg" placeholder="Password" type="text" name="passwd" id="passwd">
+                
+                </div>
+                <div class="form-group">
+                <button class="btn btn-lg btn-dark " id="enc">Encrypt</button>
+              </div>
+                <div class="form-group">
+                  <input class="form-control-lg" type="text" name="ciphertxt" id="ciphertxt">
+                </div>
+                  
                   <button id="dec">Decrypt</button>
               </form>
+            </div>
+            <div style="float:right">
+                <h2 style="font-size: 3vw">Decrypt</h2>
+                <form>
+                    <div class="form-group">
+                        <input class="form-control-lg" placeholder="Ciphertext" type="text" name="ciphertxt" id="ciphertxt">
+                      </div>
+                  <div class="form-group">
+                    <select class="form-control-sm">
+                        <option value="des-cbc">des-cbc</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control-lg" placeholder="Password" type="text" name="passwd" id="passwd">
+                  
+                  </div>
+                  <div class="form-group">
+                  <button class="btn btn-lg btn-dark " id="dec">Decrypt</button>
+                </div>
+                    <div class="form-group">
+                    <input type="text" class="form-control-lg" name="plaintxt" id="plaintxt">
+                </form>
+              </div>
               <div>
                   <p></p>
               </div>
@@ -149,7 +182,7 @@
 
               </section>
               <section>
-                  <h1> 3DES </h1>
+                  <h1> <br><br><br><br> 3DES </h1>
                   <p2> As implied by the name, 3DES is cipher based on DES. In fact, it's pretty much DES run three times. Each DES operation can use a different 56-bit key, creating a much stronger algorithm. However, this also makes it three times <i>slower</i>. For this reason, it has been replaced in popularity by this next cipher - AES. </p2> 
                   </section>
               <!--AES SECTION-->
