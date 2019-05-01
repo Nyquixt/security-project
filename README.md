@@ -5,18 +5,20 @@ a nodejs app that teaches basic security thru visualization
 
 Install [NodeJS](https://nodejs.org/en/)
 
-Clone the git:
+### Clone the git:
 
   `$ git clone https://github.com/Nyquixt/security-project.git`
   
-Install Dependencies:
+### Install Dependencies:
 
   `$ (sudo) npm install`
   
-Run The App:
+### Run The App:
 
   `$ npm start`
   
-Access The App: go to the browser and put `localhost:3000` on the address bar!
+### Access The App: 
+
+  - Go to the browser and put `localhost:3000` on the address bar!
 
 Enjoy!
