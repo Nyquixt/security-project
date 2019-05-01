@@ -9,11 +9,12 @@ $(function () {
             method: 'POST',
             data: {
                 plaintxt: $('#des-plaintxt').val(),
-                algo: $('#des-select').val(),
+                algo: $('#des-enc-select').val(),
                 passwd: $('#des-passwd').val()
             },
             success: function (data) {
                 $('#des-ciphertxt').val(data);
+                $('#des-dec-ciphertxt').val(data);
             }
         })
     });
@@ -25,12 +26,12 @@ $(function () {
             url: 'http://localhost:3000/dec',
             method: 'POST',
             data: {
-                algo: $('#des-select').val(),
+                algo: $('#des-dec-select').val(),
                 passwd: $('#des-passwd').val(),
                 ciphertxt: $('#des-ciphertxt').val()
             },
             success: function (data) {
-                $('#des-plaintxt').val(data);
+                $('#des-dec-plaintxt').val(data);
             }
         })
     });
@@ -44,11 +45,12 @@ $(function () {
             method: 'POST',
             data: {
                 plaintxt: $('#aes-plaintxt').val(),
-                algo: $('#aes-select').val(),
+                algo: $('#aes-enc-select').val(),
                 passwd: $('#aes-passwd').val()
             },
             success: function (data) {
                 $('#aes-ciphertxt').val(data);
+                $('#aes-dec-ciphertxt').val(data);
             }
         })
     });
@@ -61,12 +63,12 @@ $(function () {
             url: 'http://localhost:3000/dec',
             method: 'POST',
             data: {
-                algo: $('#aes-select').val(),
+                algo: $('#aes-dec-select').val(),
                 passwd: $('#aes-passwd').val(),
-                ciphertxt: $('#aes-ciphertxt').val()
+                ciphertxt: $('#aes-dec-ciphertxt').val()
             },
             success: function (data) {
-                $('#aes-plaintxt').val(data);
+                $('#aes-dec-plaintxt').val(data);
             }
         })
     });

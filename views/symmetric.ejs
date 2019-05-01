@@ -24,242 +24,417 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 	</script>
+
 	<script src="/js/symmetric.js"></script>
 	<link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
 </head>
 
-    <body>
-        <div id="frame">
-            <article>
-                <div class="title">
-                <img src="/images/Network2.png" width="50%">  
-                <span data-text="Network Security Labs" class="dashed-shadow hello">Network Security Labs</span>
-                </div>
-                <div class="navbar">
-                    <div class="navbar-centered">
-                      <a href="/">Home </a>
-                      <a href="/keyexchange"> Key Exchange</a>
-                      <a  class="active" style="background-color: white" href="#">Symmetric </a>
-                      <a href="/asymmetric">Asymmetric </a>
-                    </div>
-                </div>
-                <div class="parallax">
-                    <div class="bg_break" style="background-color: white;"> <br> </div>
-                    <div class="bg__regular" style="background-image: url(/images/cyber.jpg);">
-                    </div>
-                </div>
-                <div class="header">
-                    <h1>Symmetric Encryption</h1>
-                    <p>These algorithms use only one (secret) key to both encrypt and decrypt information. </p>
-                </div>
-              <img src="/images/sym.png" width="80%" style="display: block; margin: auto; padding-top: 5vw;">
-                  <section class="parallax">
-                    <div class="bg__break" style="height: 30vh; background-image: url(/images/encrypt.jpg);">
-                    </div>
-                  </section>
-                  <section>
-                    <h1> DES </h1>
-            <p2>The most widely used algorithm in the world, DES was born of the NSA's  (United States National Security Agency) need for a secure cryptographic algorithm in 1977. DES has since been cracked by brute force, as it's key length is only 56 bits. However, it lives on in the upgraded form of 3DES. We'll discuss that later. <br><br> For now, let's take a look at the original DES algorithm: <br><br> </p2>
-            
-            <img src="/images/des_structure.jpg" alt="DES Encryption is great!" class="center" style="width: 80%; display: block;">
-            
-            <p2> <br> DES is a block cipher, which means that it operates on 64 bit plaintext blocks and returns ciphertext blocks of the same size. Hence DES creates a permutation among the 2^64 possible arrangements of 64 bits, each being either 0 or 1. <br><br> DES divides each block of 64 bits into two blocks of 32 bits each, a left half block L and a right half R. Every round alters the R half of the bits, and switches L and R at the end. This means there are 8 rounds of L being encrypted and 8 rounds of R being encrypted.
-              <br><br>Click on the right-hand grey boxes to expand the section!<br><br></p2>
-             
-              <h2>Initial & Final Permutation</h2> 
-            <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#init" style="float: right">...</button>
-              <div id="init" class="collapse">
-                <p2> The 64 bit plaintext gets filtered into a straight Permutation box. It has no cryptography significance, but the initial permutation is an inverse of the final permutation. This was included to allow hardware to do the same actions for both encryption and decryption. </p2>  
-                  <img src="/images/init.jpg" alt="DES Encryption is great!" class="center" style="width: 90%; display: block;padding: 2em">
-              </div> 
-              
-              <h2><br>Feistel (F) Function</h2> 
-            <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#feistel" style="float: right">...</button>
-              <div id="feistel" class="collapse">
-                <p2> The 4-stage function that is the heart of DES. Each round calls upon this function to alter the R half of the permutated bits. </p2>  
-                  <img src="/images/round_function.jpg" alt="DES Encryption is great!" class="center" style="display:block;margin:auto;width: 60%; display: block;padding: 2em">
+<body>
+	<div id="frame">
+		<article>
+			<div class="title">
+				<img src="/images/Network2.png" width="50%">
+				<span data-text="Network Security Labs" class="dashed-shadow hello">Network Security Labs</span>
+			</div>
+			<div class="navbar">
+				<div class="navbar-centered">
+					<a href="/">Home </a>
+					<a href="/keyexchange"> Key Exchange</a>
+					<a class="active" style="background-color: white" href="#">Symmetric </a>
+					<a href="/asymmetric">Asymmetric </a>
+				</div>
+			</div>
+			<div class="parallax">
+				<div class="bg_break" style="background-color: white;"> <br> </div>
+				<div class="bg__regular" style="background-image: url(/images/cyber.jpg);">
+				</div>
+			</div>
+			<div class="header">
+				<h1>Symmetric Encryption</h1>
+				<p>These algorithms use only one (secret) key to both encrypt and decrypt information. </p>
+			</div>
+			<img src="/images/sym.png" width="80%" style="display: block; margin: auto; padding-top: 5vw;">
+			<section class="parallax">
+				<div class="bg__break" style="height: 30vh; background-image: url(/images/encrypt.jpg);">
+				</div>
+			</section>
+			<section>
+				<h1> DES </h1>
+				<p2>The most widely used algorithm in the world, DES was born of the NSA's (United States National
+					Security
+					Agency) need for a secure cryptographic algorithm in 1977. DES has since been cracked by brute
+					force, as it's
+					key length is only 56 bits. However, it lives on in the upgraded form of 3DES. We'll discuss that
+					later.
+					<br><br> For now, let's take a look at the original DES algorithm: <br><br> </p2>
 
-                  <ul class="custom-bullet">
-                    <li>
-                      <h2> Step 1: Expansion P-box</h2> 
-                      <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#exp" style="float: right">...</button>
-                      <div id="exp" class="collapse">
-                          <img src="/images/permutation_logic.jpg" alt="DES Encryption is great!" class="center" style="width: 90%; display: block;padding: 2em">
-                        <p2> Our round key K_1 is 48 bits, but the right input is only 32 bits. Using permutation logic graphically shown above, this box expands the 32 bits into 48 bits. <br><br> </p2>  
-                      </div>
-                      </li>
-                      <li> 
-                      <h2> Step 2: XOR with Round Key</h2> 
-                      <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#xor" style="float: right">...</button>
-                      <div id="xor" class="collapse">
-                        <p2> DES performs an Exclusive OR operation to the expanded R half with the round key. <br><br>  </p2>  
-                      </div>
-                      </li>
-                      <li><h2> Step 3: Substitution boxes</h2> 
-                        <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#sbox" style="float: right">...</button>
-                        <div id="sbox" class="collapse">
-                            <img src="/images/s_box_rule.jpg" alt="DES Encryption is great!" class="center" style="width: 90%; display: block;padding: 2em">
-                          <p2> The "confusion" part of DES occurs here. Using 8 S-boxes, each with a 6-bit input and 4-bit output, DES substitutes the values is recieved from the previous operation with the corresponding value into the table entries within each box. The image above is the inside of an S-box, where the table entries are visible.
-                          <br></p2>  
-                        </div>
-                      </li>
-                      <li><h2>Step 4: Straight P-box</h2> 
-                        <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#straight" style="float: right">...</button>
-                        <div id="straight" class="collapse">
-                            <img src="/images/straight_permutation.jpg" alt="DES Encryption is great!" class="center" style="width: 90%; display: block;padding: 2em">
-                          <p2> Lastly, the 32-bit output of the S-boxes is transformed by one last, straight permutation. The resulting output is then either fed into the F function again for another round or passed onto the final permutation. </p2>  
-                        </div>
-                      </li>
-                      </ul>
-                      <p><br></p>
-                    </div>
+				<img src="/images/des_structure.jpg" alt="DES Encryption is great!" class="center"
+					style="width: 80%; display: block;">
 
-                <h2><br>Key Structure</h2> 
-            <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#key" style="float: right">...</button>
-              <div id="key" class="collapse">
-                <p2> Sixteen rounds of the F function indicates that sixteen 48-bit keys are needed. </p2>  
-                  <img src="/images/key_generation.jpg" alt="DES Encryption is great!" class="center" style="width: 90%; display: block;padding: 2em">
-                <p2> <br><br> From this image here, you can see that a combination of dropping parity bits, shifting left, and compressing creates 16 unique round keys to be used throughout the rounds of the Feistel function in DES. </p2>
-              </div>  
-              <h2><br><br>DES Tools</h2> 
-              <p> Try it out for yourself! Using the DES tools we have provided, try to encrypt and decrypt a message of your choice! <br><br></p>
-              <div style="float:left">
-              <h2 style="font-size: 3vw">Encrypt</h2>
-              <form>
-                <div class="form-group">
-                  <input type="text" class="form-control-lg" placeholder="Plaintext" name="des-plaintxt" id="des-plaintxt">
+				<p2> <br> DES is a block cipher, which means that it operates on 64 bit plaintext blocks and returns
+					ciphertext
+					blocks of the same size. Hence DES creates a permutation among the 2^64 possible arrangements of 64
+					bits, each
+					being either 0 or 1. <br><br> DES divides each block of 64 bits into two blocks of 32 bits each, a
+					left half
+					block L and a right half R. Every round alters the R half of the bits, and switches L and R at the
+					end. This
+					means there are 8 rounds of L being encrypted and 8 rounds of R being encrypted.
+					<br><br>Click on the right-hand grey boxes to expand the section!<br><br></p2>
 
-                </div>
-                <div class="form-group">
-                  <select class="form-control-sm">
-                      <option value="des-select">des-cbc</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <input class="form-control-lg" placeholder="Password" type="text" name="des-passwd" id="des-passwd">
-                
-                </div>
-                <div class="form-group">
-                <button class="btn btn-lg btn-dark " id="des-enc">Encrypt</button>
-              </div>
-                <div class="form-group">
-                  <input class="form-control-lg" type="text" name="des-ciphertxt" id="des-ciphertxt">
-                </div>
-              </form>
-            </div>
-            <div style="float:right">
-                <h2 style="font-size: 3vw">Decrypt</h2>
-                <form>
-                    <div class="form-group">
-                        <input class="form-control-lg" placeholder="Ciphertext" type="text" name="des-ciphertxt" id="des-ciphertxt">
-                      </div>
-                  <div class="form-group">
-                    <select class="form-control-sm">
-                        <option value="des-select">des-cbc</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <input class="form-control-lg" placeholder="Password" type="text" name="des-passwd" id="des-passwd">
-                  
-                  </div>
-                  <div class="form-group">
-                  <button class="btn btn-lg btn-dark " id="des-dec">Decrypt</button>
-                </div>
-                    <div class="form-group">
-                    <input type="text" class="form-control-lg" name="des-plaintxt" id="des-plaintxt">
-                </form>
-              </div>
-              <div>
-                  <p></p>
-              </div>
-          
-              <script src="https://code.jquery.com/jquery-3.3.1.js"
-                  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-              <script src="/js/symmetric.js"></script>
+				<h2>Initial & Final Permutation</h2>
+				<button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#init"
+					style="float: right">...</button>
+				<div id="init" class="collapse">
+					<p2> The 64 bit plaintext gets filtered into a straight Permutation box. It has no cryptography
+						significance,
+						but the initial permutation is an inverse of the final permutation. This was included to allow
+						hardware to
+						do the same actions for both encryption and decryption. </p2>
+					<img src="/images/init.jpg" alt="DES Encryption is great!" class="center"
+						style="width: 90%; display: block;padding: 2em">
+				</div>
 
-              </section>
-              <section>
-                  <h1> <br><br><br><br><br> 3DES </h1>
-                  <p2> As implied by the name, 3DES is cipher based on DES. In fact, it's pretty much DES run three times. Each DES operation can use a different 56-bit key, creating a much stronger algorithm. However, this also makes it three times <i>slower</i>. For this reason, it has been replaced in popularity by this next cipher: AES. </p2> 
-                  </section>
-              <!--AES SECTION-->
-              <section>
-                  <h1> AES </h1>
-                  <p2> AES is another block cipher established by the U.S National Institute of Standards and Technology (NIST) in 2001. It has been adopted by the U.S government and is still used worldwide as the only publicy accessible cipher approved by the NSA for top secret information. Like DES, it is a symmetric, block cipher. However, it has a stronger block size of 128 bits.<br><br>
-                      
-                  Here is the diagram detailing AES's algorithm. <br><br></p2>
+				<h2><br>Feistel (F) Function</h2>
+				<button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#feistel"
+					style="float: right">...</button>
+				<div id="feistel" class="collapse">
+					<p2> The 4-stage function that is the heart of DES. Each round calls upon this function to alter the
+						R half of
+						the permutated bits. </p2>
+					<img src="/images/round_function.jpg" alt="DES Encryption is great!" class="center"
+						style="display:block;margin:auto;width: 60%; display: block;padding: 2em">
 
-                  <img src="/images/aes_structure.jpg" alt="AES Encryption is great!" class="center" style="width: 80%; display: block;">
+					<ul class="custom-bullet">
+						<li>
+							<h2> Step 1: Expansion P-box</h2>
+							<button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#exp"
+								style="float: right">...</button>
+							<div id="exp" class="collapse">
+								<img src="/images/permutation_logic.jpg" alt="DES Encryption is great!" class="center"
+									style="width: 90%; display: block;padding: 2em">
+								<p2> Our round key K_1 is 48 bits, but the right input is only 32 bits. Using
+									permutation logic
+									graphically shown above, this box expands the 32 bits into 48 bits. <br><br> </p2>
+							</div>
+						</li>
+						<li>
+							<h2> Step 2: XOR with Round Key</h2>
+							<button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#xor"
+								style="float: right">...</button>
+							<div id="xor" class="collapse">
+								<p2> DES performs an Exclusive OR operation to the expanded R half with the round key.
+									<br><br> </p2>
+							</div>
+						</li>
+						<li>
+							<h2> Step 3: Substitution boxes</h2>
+							<button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#sbox"
+								style="float: right">...</button>
+							<div id="sbox" class="collapse">
+								<img src="/images/s_box_rule.jpg" alt="DES Encryption is great!" class="center"
+									style="width: 90%; display: block;padding: 2em">
+								<p2> The "confusion" part of DES occurs here. Using 8 S-boxes, each with a 6-bit input
+									and 4-bit output,
+									DES substitutes the values is recieved from the previous operation with the
+									corresponding value into
+									the table entries within each box. The image above is the inside of an S-box, where
+									the table entries
+									are visible.
+									<br></p2>
+							</div>
+						</li>
+						<li>
+							<h2>Step 4: Straight P-box</h2>
+							<button type="button" class="btn btn-secondary" data-toggle="collapse"
+								data-target="#straight" style="float: right">...</button>
+							<div id="straight" class="collapse">
+								<img src="/images/straight_permutation.jpg" alt="DES Encryption is great!"
+									class="center" style="width: 90%; display: block;padding: 2em">
+								<p2> Lastly, the 32-bit output of the S-boxes is transformed by one last, straight
+									permutation. The
+									resulting output is then either fed into the F function again for another round or
+									passed onto the
+									final permutation. </p2>
+							</div>
+						</li>
+					</ul>
+					<p><br></p>
+				</div>
 
-                  <p><br><br></p>
-                  <h2>Pre-round Transformation</h2> 
-            <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#pre" style="float: right"> ...  </button>
-              <div id="pre" class="collapse">
-                <p2> The Pre-round transformation begins by XORing a 128 bit round key with the 128 bit plaintext. AES chooses to encrypt the plaintext in byte format, rather than in bits. So the 128 bits then become sixteen bytes, arranged in a four by four matrix for the rounds. </p2>  
-              </div> 
-              
-              <h2><br>Encryption Rounds</h2> 
-            <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#encround" style="float: right">...</button>
-              <div id="encround" class="collapse">
-                <p2> Unlike DES, the number of rounds in AES depends on the length of the key. For 128-bit keys, 10 rounds are performed; 12 rounds for 192-bit keys, and 14 rounds for 256-bit keys. Each AES round has four sub-processes, using a different 128-bit round key each time. </p2>  
-                  <img src="/images/first_round_process.jpg" alt="DES Encryption is great!" class="center" style="display:block;margin:auto;width: 60%; display: block;padding: 2em">
+				<h2><br>Key Structure</h2>
+				<button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#key"
+					style="float: right">...</button>
+				<div id="key" class="collapse">
+					<p2> Sixteen rounds of the F function indicates that sixteen 48-bit keys are needed. </p2>
+					<img src="/images/key_generation.jpg" alt="DES Encryption is great!" class="center"
+						style="width: 90%; display: block;padding: 2em">
+					<p2> <br><br> From this image here, you can see that a combination of dropping parity bits, shifting
+						left, and
+						compressing creates 16 unique round keys to be used throughout the rounds of the Feistel
+						function in DES.
+					</p2>
+				</div>
+				<h2><br><br>DES Tools</h2>
+				<p> Try it out for yourself! Using the DES tools we have provided, try to encrypt and decrypt a message
+					of your
+					choice! <br><br></p>
+				<div style="float:left">
+					<h2 style="font-size: 3vw">Encrypt</h2>
+					<form>
+						<div class="form-group">
+							<input type="text" class="form-control-lg" placeholder="Plaintext" name="des-plaintxt"
+								id="des-plaintxt">
 
-                  <ul class="custom-bullet">
-                    <li>
-                      <h2> Substitute Bytes </h2>
-                        <p2> Using a fixed table (S-box) given by the AES algorithm, each of the 16 input bytes are substituted. The output is another 4x4 matrix. <br><br> </p2>
-                      </li>
-                      <li> 
-                      <h2> Shift Rows</h2> 
-                        <p2> The rows of the 4x4 matriz are shifted to the left; entries that fall off are inserted back into the matrix via the right side. The pattern is as follows:<br><br> </p2>
-                        <p2>
-                        The first row: no shift.<br> 
-                        The second row: one byte to the left. <br>
-                        The third row: two bytes to the left.<br>
-                        The fourth row: three bytes to the left  <br><br>
-                        The resulting matrix is the same size. <br><br></p2>
-                      </li>
-                      <li><h2> Mix Columns</h2> 
-                         <p2> Using a mathematical function, this section transforms a column of the 4x4 matrix one at a time, resulting in yet another 4x4 matrix of sixteen bytes. Note that this step doesn't occur during the last round.<br><br></p2>  
-                      </li>
-                      <li><h2> Add Round Key</h2> 
-                       <p2> This step regards the 16 bytes as 128 bits again so that it can XOR the matrix with a 128-bit round key. If this is the last round, then it's result is the ciphertext. Otherwise, it's interpreted as a 4x4 matrix again and another round begins.<br><br> </p2>  
-                       
-                      </li>
-                      </ul>
-                      <p><br></p>
-                    </div>
+						</div>
+						<div class="form-group">
+							<select class="form-control-sm" id="des-enc-select">
+								<option value="des-cbc">des-cbc</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<input class="form-control-lg" placeholder="Password" type="text" name="des-passwd"
+								id="des-passwd">
 
-                <h2><br>Decryption</h2> 
-            <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#dec" style="float: right">...</button>
-              <div id="dec" class="collapse">
-                <p2> The Decryption process contains all the same sections that the Encryption process uses, just in <b>reverse order</b>. Because of this, the encryption and decryption algorithmns need to be implemented differently - despite being so closely related. </p2> 
-              </div>  
+						</div>
+						<div class="form-group">
+							<button class="btn btn-lg btn-dark " id="des-enc">Encrypt</button>
+						</div>
+						<div class="form-group">
+							<input class="form-control-lg" type="text" name="des-ciphertxt" id="des-ciphertxt">
+						</div>
+					</form>
+				</div>
+				<div style="float:right">
+					<h2 style="font-size: 3vw">Decrypt</h2>
+					<form>
+						<div class="form-group">
+							<input class="form-control-lg" placeholder="Ciphertext" type="text" name="des-ciphertxt"
+								id="des-dec-ciphertxt">
+						</div>
+						<div class="form-group">
+							<select class="form-control-sm" id="des-dec-select">
+								<option value="des-cbc">des-cbc</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<input class="form-control-lg" placeholder="Password" type="text" name="des-passwd"
+								id="des-passwd">
 
-              <h2><br><br>AES Tools</h2> 
-              <p> <p> Try it out for yourself! Using the AES tools we have provided, try to encrypt and decrypt a message of your choice! </p> </p>
-              </section>
-              <!--RC4 SECTION-->
-              <section>
-                  <h1> RC4 </h1>
-                  <p2> RC4 was designed by Ron Rivest of RSA security in the late 1980's. Leaked in 1994, the algorithm became public knowledge and has been used in many encryption protocols and standards, including WPA, SSL/TLS (until 2015). Many problems with the algorithm have been found, and it is no longer considered safe to use. Unlike DES and AES, RC4 is a stream cipher.<br><br> </p2>
+						</div>
+						<div class="form-group">
+							<button class="btn btn-lg btn-dark " id="des-dec">Decrypt</button>
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control-lg" name="des-plaintxt" id="des-dec-plaintxt">
+					</form>
+				</div>
+				<div>
+					<p></p>
+				</div>
 
-                  <h2>What is a Stream Cipher?</h2>
-                  <img src="/images/stream.png" alt="An awesome looking stream cipher!" class="center" style="width: 60%; display: block;">
-                  <p2> A stream cipher is an encryption algorithm that encrypts plaintext with a variable length, one bit or byte at a time. It uses an infinite stream of pseudorandom bits as the key. The cipher is designed to emulate the "perfect secrecy" of the One-Time Pad.  <br><br></p2> 
+			</section>
+			<section>
+				<h1> <br><br><br><br><br> 3DES </h1>
+				<p2> As implied by the name, 3DES is cipher based on DES. In fact, it's pretty much DES run three times.
+					Each
+					DES operation can use a different 56-bit key, creating a much stronger algorithm. However, this also
+					makes it
+					three times <i>slower</i>. For this reason, it has been replaced in popularity by this next cipher -
+					AES.
+				</p2>
+			</section>
+			<!--AES SECTION-->
+			<section>
+				<h1> AES </h1>
+				<p2> AES is another block cipher established by the U.S National Institute of Standards and Technology
+					(NIST) in
+					2001. It has been adopted by the U.S government and is still used worldwide as the only publicy
+					accessible
+					cipher approved by the NSA for top secret information. Like DES, it is a symmetric, block cipher.
+					However, it
+					has a stronger block size of 128 bits.<br><br>
 
-                  <h2>How it Works</h2>
-                  <p2> Unlike the complicated task of encrypting a message using DES or AES, RC4 only manipulates the plaintext in one way: combining it with a keystream using bit-wise exclusive-or. <br><br> The real work is generating the keystream. RC4 uses a permutation of all 256 possible bytes and two 8-bit index-pointers in a Psuedo-random generation algorithm (PRGA). It creates this permutation with a key-scheudling algorithm(KSA).</p2> 
+					Here is the diagram detailing AES's algorithm. <br><br></p2>
 
-                <p><br><br></p>
+				<img src="/images/aes_structure.jpg" alt="AES Encryption is great!" class="center"
+					style="width: 80%; display: block;">
 
-                <p2> In the next section, we're going to take a look at the other types of modern ciphers, ones that use multiple keys: Asymmetric Encryption.<br><br></p2>
-                <!-- Insert Next Section Button-->
-                <a href="/asymmetric" > <button type="button" class="btn btn-dark btn-block" id="next" style="font-size: 2vw" > Next </button> </a>  
-             </section>
-    </article>
-    </div>
- </body>
+				<p><br><br></p>
+				<h2>Pre-round Transformation</h2>
+				<button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#pre"
+					style="float: right">
+					... </button>
+				<div id="pre" class="collapse">
+					<p2> The Pre-round transformation begins by XORing a 128 bit round key with the 128 bit plaintext.
+						AES chooses
+						to encrypt the plaintext in byte format, rather than in bits. So the 128 bits then become
+						sixteen bytes,
+						arranged in a four by four matrix for the rounds. </p2>
+				</div>
+
+				<h2><br>Encryption Rounds</h2>
+				<button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#encround"
+					style="float: right">...</button>
+				<div id="encround" class="collapse">
+					<p2> Unlike DES, the number of rounds in AES depends on the length of the key. For 128-bit keys, 10
+						rounds are
+						performed; 12 rounds for 192-bit keys, and 14 rounds for 256-bit keys. Each AES round has four
+						sub-processes, using a different 128-bit round key each time. </p2>
+					<img src="/images/first_round_process.jpg" alt="DES Encryption is great!" class="center"
+						style="display:block;margin:auto;width: 60%; display: block;padding: 2em">
+
+					<ul class="custom-bullet">
+						<li>
+							<h2> Substitute Bytes </h2>
+							<p2> Using a fixed table (S-box) given by the AES algorithm, each of the 16 input bytes are
+								substituted.
+								The output is another 4x4 matrix. <br><br> </p2>
+						</li>
+						<li>
+							<h2> Shift Rows</h2>
+							<p2> The rows of the 4x4 matriz are shifted to the left; entries that fall off are inserted
+								back into the
+								matrix via the right side. The pattern is as follows:<br><br> </p2>
+							<p2>
+								The first row: no shift.<br>
+								The second row: one byte to the left. <br>
+								The third row: two bytes to the left.<br>
+								The fourth row: three bytes to the left <br><br>
+								The resulting matrix is the same size. <br><br></p2>
+						</li>
+						<li>
+							<h2> Mix Columns</h2>
+							<p2> Using a mathematical function, this section transforms a column of the 4x4 matrix one
+								at a time,
+								resulting in yet another 4x4 matrix of sixteen bytes. Note that this step doesn't occur
+								during the last
+								round.<br><br></p2>
+						</li>
+						<li>
+							<h2> Add Round Key</h2>
+							<p2> This step regards the 16 bytes as 128 bits again so that it can XOR the matrix with a
+								128-bit round
+								key. If this is the last round, then it's result is the ciphertext. Otherwise, it's
+								interpreted as a 4x4
+								matrix again and another round begins.<br><br> </p2>
+
+						</li>
+					</ul>
+					<p><br></p>
+				</div>
+
+				<h2><br>Decryption</h2>
+				<button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#dec"
+					style="float: right">...</button>
+				<div id="dec" class="collapse">
+					<p2> The Decryption process contains all the same sections that the Encryption process uses, just in
+						<b>reverse order</b>. Because of this, the encryption and decryption algorithmns need to be
+						implemented
+						differently - despite being so closely related. </p2>
+				</div>
+
+				<h2><br><br>AES Tools</h2>
+				<p> Try it out for yourself! Using the AES tools we have provided, try to encrypt and decrypt a message
+					of your
+					choice! <br><br></p>
+				<div style="float:left">
+					<h2 style="font-size: 3vw">Encrypt</h2>
+					<form>
+						<div class="form-group">
+							<input type="text" class="form-control-lg" placeholder="Plaintext" name="aes-plaintxt"
+								id="aes-plaintxt">
+
+						</div>
+						<div class="form-group">
+							<select class="form-control-sm" id="aes-enc-select">
+								<option value="aes-192-cbc">aes-192-cbc</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<input class="form-control-lg" placeholder="Password" type="text" name="aes-passwd"
+								id="aes-passwd">
+
+						</div>
+						<div class="form-group">
+							<button class="btn btn-lg btn-dark " id="aes-enc">Encrypt</button>
+						</div>
+						<div class="form-group">
+							<input class="form-control-lg" type="text" name="aes-ciphertxt" id="aes-ciphertxt">
+						</div>
+					</form>
+				</div>
+				<div style="float:right">
+					<h2 style="font-size: 3vw">Decrypt</h2>
+					<form>
+						<div class="form-group">
+							<input class="form-control-lg" placeholder="Ciphertext" type="text" name="aes-ciphertxt"
+								id="aes-dec-ciphertxt">
+						</div>
+						<div class="form-group">
+							<select class="form-control-sm" id="aes-dec-select">
+								<option value="aes-192-cbc">aes-192-cbc</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<input class="form-control-lg" placeholder="Password" type="text" name="aes-passwd"
+								id="aes-passwd">
+
+						</div>
+						<div class="form-group">
+							<button class="btn btn-lg btn-dark " id="aes-dec">Decrypt</button>
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control-lg" name="des-plaintxt" id="aes-dec-plaintxt">
+					</form>
+				</div>
+				<div>
+					<p></p>
+				</div>
+
+			</section>
+			<!--RC4 SECTION-->
+			<section>
+				<h1><br><br><br><br> RC4 </h1>
+				<p2> RC4 was designed by Ron Rivest of RSA security in the late 1980's. Leaked in 1994, the algorithm
+					became
+					public knowledge and has been used in many encryption protocols and standards, including WPA,
+					SSL/TLS (until
+					2015). Many problems with the algorithm have been found, and it is no longer considered safe to use.
+					Unlike
+					DES and AES, RC4 is a stream cipher.<br><br> </p2>
+
+				<h2>What is a Stream Cipher?</h2>
+				<img src="/images/stream.png" alt="An awesome looking stream cipher!" class="center"
+					style="width: 60%; display: block;">
+				<p2> A stream cipher is an encryption algorithm that encrypts plaintext with a variable length, one bit
+					or byte
+					at a time. It uses an infinite stream of pseudorandom bits as the key. The cipher is designed to
+					emulate the
+					"perfect secrecy" of the One-Time Pad. <br><br></p2>
+
+				<h2>How it Works</h2>
+				<p2> Unlike the complicated task of encrypting a message using DES or AES, RC4 only manipulates the
+					plaintext in
+					one way: combining it with a keystream using bit-wise exclusive-or. <br><br> The real work is
+					generating the
+					keystream. RC4 uses a permutation of all 256 possible bytes and two 8-bit index-pointers in a
+					Psuedo-random
+					generation algorithm (PRGA). It creates this permutation with a key-scheudling algorithm(KSA).</p2>
+
+				<p><br><br></p>
+
+				<p2> In the next section, we're going to take a look at the other types of modern ciphers, ones that use
+					multiple keys: Asymmetric Encryption.<br><br></p2>
+				<!-- Insert Next Section Button-->
+				<a href="/asymmetric"> <button type="button" class="btn btn-dark btn-block" id="next"
+						style="font-size: 2vw">
+						Next </button> </a>
+			</section>
+		</article>
+	</div>
+</body>
+
 </html>
