@@ -72,4 +72,41 @@ $(function () {
             }
         })
     });
+
+    // rc4
+    // enc
+    $('#rc4-enc').click(e => {
+        e.preventDefault();
+        $.ajax({
+            url: 'http://localhost:3000/enc',
+            method: 'POST',
+            data: {
+                plaintxt: $('#rc4-plaintxt').val(),
+                algo: $('#rc4-enc-select').val(),
+                passwd: $('#rc4-passwd').val()
+            },
+            success: function (data) {
+                $('#rc4-ciphertxt').val(data);
+                $('#rc4-dec-ciphertxt').val(data);
+            }
+        })
+    });
+
+
+    // dec
+    $('#rc4-dec').click(e => {
+        e.preventDefault();
+        $.ajax({
+            url: 'http://localhost:3000/dec',
+            method: 'POST',
+            data: {
+                algo: $('#rc4-dec-select').val(),
+                passwd: $('#rc4-passwd').val(),
+                ciphertxt: $('#rc4-dec-ciphertxt').val()
+            },
+            success: function (data) {
+                $('#rc4-dec-plaintxt').val(data);
+            }
+        })
+    });
 });
