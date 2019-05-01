@@ -5,9 +5,10 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1">
-    <title>Network Security Labs</title>
+    <title>Asymmetric</title>
     <meta name="description" content="Network Security Labs">
     <meta name="author" content="Kenzie Clarke">
+    <link rel="icon" href="/images/Network2.png">
 
     <link rel="stylesheet" href="/css/parallax.css">
     <link rel="stylesheet" href="/css/dashedshadow.css">
@@ -86,15 +87,178 @@
                 </div>
             </section>
             <section>
-                <h2> RSA </h2>
+                <h2> RSA (the really important part)</h2>
+                <h3>Basics</h3>
+                <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#basics"
+                    style="float: right">...</button>
+                <div id="basics" class="collapse">
+                    <p2>
+                        <ol>
+                            <li>based on exponentiation in a finite (Galois) field over integers modulo a prime</li>
+                            <li>no substitution or permutation</li>
+                            <li>security due to cost of factoring large numbers</li>
+                        </ol>
+                        RSA is a complement rather than a replacement to symmetric key cryptography.
+                    </p2>
+                </div>
+                <h3><br>Key Setup </h3>
+                <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#setup"
+                    style="float: right">...</button>
+                <div id="setup" class="collapse">
+                    <h4>Step 1</h4>
+                    <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#step1"
+                        style="float: right">...</button>
+                    <div id="step1" class="collapse">
+                        <p2>
+                            Each user generates a public/private key pair by:
+                            <ol>
+                                <li>selecting two large primes at random: <code>p, q</code></li>
+                                <li>computing their system modulus <code>n = p * q</code></li>
+                                <li>note <code>ø(n)=(p-1)(q-1)</code></li>
+                            </ol>
+                        </p2>
+                    </div>
 
-                <h2> ECC </h2>
+                    <h4>Step 2</h4>
+                    <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#step2"
+                        style="float: right">...</button>
+                    <div id="step2" class="collapse">
+                        <p2>
+                            Select at random the encryption key <code>e</code>
+                            <ul>
+                                <li>where <code>1 &lt; e &lt; ø(n), gcd(e,ø(n))=1</code></li>
+                            </ul>
+                        </p2>
+                    </div>
 
-                <h2> ElGamal</h2>
+                    <h4>Step 3</h4>
+                    <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#step3"
+                        style="float: right">...</button>
+                    <div id="step3" class="collapse">
+                        <p2>
+                            Solve following equation to find decryption key <code>d</code>
+                            <ul>
+                                <li><code>e * d = 1 mod ø(n) and 0 &le; d &le; n</code></li>
+                            </ul>
+                        </p2>
+                    </div>
 
-                <h2>Simple Example</h2>
+                    <h4>Step 4</h4>
+                    <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#step4"
+                        style="float: right">...</button>
+                    <div id="step4" class="collapse">
+                        <p2>
+                            <ul>
+                                <li>Publish their public encryption key: <code>Pu = {e, n}</code></li>
+                                <li>Keep secret private decryption key: <code>Pr = {d, n}</code></li>
+                            </ul>
+                        </p2>
+                    </div>
+                </div>
 
-                <div id="example">
+                <h3><br>En/Decryption</h3>
+                <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#enc-dec"
+                    style="float: right">...</button>
+                <div id="enc-dec" class="collapse">
+                    <p2>Use exponentiation of integers modulo a prime
+                        <ul>
+                            <li>Encryption: <code>C = M<sup>e</sup> mod n</code></li>
+                            <li>Decryption: <code>M = C<sup>d</sup> mod n = (M<sup>e</sup>)<sup>d</sup> mod n = M</code>
+                            </li>
+                            <li>Notes:
+                                <ul>
+                                    <li>Both sender and receiver know values of <code>n</code> and <code>e</code></li>
+                                    <li>Only receiver knows the value of <code>d</code></li>
+                                </ul>
+                            </li>
+                            <li>We use public key <code>Pu</code> to en/decrypt private key <code>Pr</code> and vice
+                                versa.</li>
+                        </ul>
+                    </p2>
+
+                </div>
+
+                <h3><br>Security</h3>
+                <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#sec"
+                    style="float: right">...</button>
+                <div id="sec" class="collapse">
+                    <p2>Possible approaches of attacking RSA are:
+                        <ul>
+                            <li>Brute force key search - infeasible given size of numbers</li>
+                            <li>Mathematical attacks - based on difficulty of computing <code>ø(n)</code>, by factoring
+                                modulus <code>n</code></li>
+                            <li>Timing attacks - on running of decryption</li>
+                            <li>Chosen ciphertext attacks - given properties of RSA</li>
+                        </ul>
+                    </p2>
+                </div>
+
+                <h3><br>Applications</h3>
+                <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#apps"
+                    style="float: right">...</button>
+                <div id="apps" class="collapse">
+                    <h4>Digital Envelopes</h4>
+                    <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#dig-env"
+                        style="float: right">...</button>
+                    <div id="dig-env" class="collapse">
+                        <img src="/images/dig-env.png" alt="Digital Envelopes" class="center"
+                            style="width: 70%; display: block;padding: 2em">
+                        <p2>
+                            Digital Envelopes are used to protect a symmetric key. The process consists of 4 steps:
+                            <ul>
+                                <li>Prepare a message</li>
+                                <li>Encrypt that message using conventional encryption with a one-time conventional
+                                    session key</li>
+                                <li>Encrypt the session key using public-key encryption with Receiver's public key</li>
+                                <li>Attach the encrypted session key to the message and send it to the Receiver</li>
+                            </ul>
+                        </p2>
+                    </div>
+
+                    <h4>Certificates</h4>
+                    <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#certs"
+                        style="float: right">...</button>
+                    <div id="certs" class="collapse">
+                        <img src="/images/certs.png" alt="Certificates" class="center"
+                            style="width: 70%; display: block;padding: 2em">
+                        <p2>
+                            Certificates, or signed public key(s), are used to gain trust of a public key.
+                        </p2>
+                    </div>
+                </div>
+
+                <h2><br>ECC </h2>
+                <h3><br>Example ECC Curves</h3>
+                <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#curves"
+                    style="float: right">...</button>
+                <div id="curves" class="collapse">
+                    <img src="/images/curves.png" alt="ECC Curves" class="center"
+                        style="width: 50%; display: block;padding: 2em">
+                </div>
+
+                <h3><br>ECC Diffie-Hellman Key Exchange</h3>
+                <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#ecc-diff"
+                    style="float: right">...</button>
+                <div id="ecc-diff" class="collapse">
+                    <img src="/images/ecc-diff.png" alt="ECC Diffie-Hellman" class="center"
+                        style="width: 70%; display: block;padding: 2em">
+                </div>
+
+                <h2><br>ElGamal</h2>
+                <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#elgamal"
+                    style="float: right">...</button>
+                <div id="elgamal" class="collapse">
+                    <img src="/images/elgamal.png" alt="ElGamal" class="center"
+                        style="width: 50%; display: block;padding: 2em">
+                    <p2>
+                        ElGamal is a method of calculating piublic and private keys, similar to RSA.
+                    </p2>
+                </div>
+
+                <h2><br>Simple Example with RSA</h2>
+                <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#example"
+                    style="float: right">...</button><br>
+                <div id="example" class="collapse">
                     <div id="alice">
                         <h3>Alice (Sender)</h3><br>
                         <button class="btn btn-dark" id="alice-genkey">Generate A Key Pair</button>
@@ -125,9 +289,10 @@
                 </div>
 
                 <!-- Insert Next Section Button-->
-                <a href="/" > <button type="button" class="btn btn-dark btn-block" id="next" style="font-size: 2vw" > Home </button> </a>  
-             </section>
-    </article>
+                <a href="/"> <button type="button" class="btn btn-dark btn-block" id="next" style="font-size: 2vw"> Home
+                    </button> </a>
+            </section>
+        </article>
     </div>
 </body>
 
